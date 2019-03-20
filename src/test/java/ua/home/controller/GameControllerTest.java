@@ -46,6 +46,11 @@ public class GameControllerTest {
         mockMvc.perform(get("/play/{number}", 500))
                 .andExpect(content().contentType("application/json;charset=UTF-8"));
     }
+    @Test
+    public void givenGreetURI_whenMockMVC_thenGetJson() throws Exception {
 
+        mockMvc.perform(get("/play/{number}", 500))
+                .andExpect(jsonPath("$.result").value("Is it just me being hypercritical or something is wrong???"));
+    }
 
 }

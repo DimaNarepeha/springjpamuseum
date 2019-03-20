@@ -2,32 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="75f8b997-be4c-42d0-af4b-c579a8cb4068" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gradle/4.8/fileContent/fileContent.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.8/fileContent/fileContent.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.8/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.8/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.8/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.8/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.8/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.8/fileHashes/resourceHashesCache.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.8/taskHistory/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.8/taskHistory/taskHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.8/taskHistory/taskHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.8/taskHistory/taskHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/ua/home/Util/WebAppInitializer.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/ua/home/Util/WebAppInitializer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/ua/home/config/WebConfig.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/ua/home/service/GameService.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/ua/home/service/GameService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/test/ua/home/controller/GameControllerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/test/ua/home/controller/GameControllerTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/libs/guess-mvc-1.0-SNAPSHOT.war" beforeDir="false" afterPath="$PROJECT_DIR$/build/libs/guess-mvc-1.0-SNAPSHOT.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/classes/ua.home.controller.GameControllerTest.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/classes/ua.home.controller.GameControllerTest.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/classes/ua.home.service.GameServiceImplTest.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/classes/ua.home.service.GameServiceImplTest.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/packages/ua.home.controller.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/packages/ua.home.controller.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/packages/ua.home.service.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/packages/ua.home.service.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/test-results/test/TEST-ua.home.controller.GameControllerTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/TEST-ua.home.controller.GameControllerTest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/test-results/test/TEST-ua.home.service.GameServiceImplTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/TEST-ua.home.service.GameServiceImplTest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/results.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/binary/results.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/ua/home/config/WebConfig.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ua/home/Util/WebAppInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/home/Util/WebAppInitializer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ua/home/config/WebConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/home/config/Config.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/ua/home/controller/GameControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ua/home/controller/GameControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/ua/home/service/GameServiceImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ua/home/service/GameServiceImplTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -108,13 +83,13 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="gradle" value="21" />
-          <entry key="java" value="329" />
+          <entry key="java" value="337" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Groovy" value="21" />
-          <entry key="JAVA" value="329" />
+          <entry key="JAVA" value="337" />
         </counts>
       </usages-collector>
     </session>
@@ -157,23 +132,25 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/ua/home/service/GameService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="321">
-              <caret line="26" column="1" lean-forward="true" selection-start-line="26" selection-start-column="1" selection-end-line="26" selection-end-column="1" />
+            <state relative-caret-position="270">
+              <caret line="23" column="42" lean-forward="true" selection-start-line="23" selection-start-column="42" selection-end-line="23" selection-end-column="42" />
               <folding>
                 <element signature="e#511#512#0" expanded="true" />
                 <element signature="e#540#541#0" expanded="true" />
-                <element signature="e#584#585#0" expanded="true" />
                 <element signature="e#620#621#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/ua/home/controller/GameControllerTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="115">
-              <caret line="13" column="43" lean-forward="true" selection-start-line="13" selection-start-column="43" selection-end-line="13" selection-end-column="43" />
+            <state relative-caret-position="219">
+              <caret line="52" column="113" selection-start-line="52" selection-start-column="113" selection-end-line="52" selection-end-column="113" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -192,7 +169,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/ua/home/Util/WebAppInitializer.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="187">
@@ -670,11 +647,11 @@
         <option value="$PROJECT_DIR$/src/main/java/ua/home/config/WebConfig.java" />
         <option value="$PROJECT_DIR$/build.gradle" />
         <option value="$PROJECT_DIR$/src/main/java/ua/home/controller/GameController.java" />
-        <option value="$PROJECT_DIR$/src/test/java/ua/home/controller/GameControllerTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/ua/home/service/GameService.java" />
         <option value="$PROJECT_DIR$/src/main/java/ua/home/config/Config.java" />
         <option value="$PROJECT_DIR$/src/main/java/ua/home/Util/WebAppInitializer.java" />
         <option value="$PROJECT_DIR$/src/test/java/ua/home/service/GameServiceImplTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/ua/home/controller/GameControllerTest.java" />
       </list>
     </option>
   </component>
@@ -821,7 +798,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553115082932" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553117381505" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
   </component>
@@ -837,7 +814,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.GameServiceImplTest">
+  <component name="RunManager" selected="Gradle.guess-mvc [cargoStopLocal]">
     <configuration name="guess-mvc [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -906,34 +883,36 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GameServiceImplTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="GameControllerTest.givenGreetURI_whenMockMVC_thenGetJson" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="guess-mvc_test" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="ua.home.service.*" />
+          <option name="PATTERN" value="ua.home.controller.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="ua.home.service" />
-      <option name="MAIN_CLASS_NAME" value="ua.home.service.GameServiceImplTest" />
+      <option name="PACKAGE_NAME" value="ua.home.controller" />
+      <option name="MAIN_CLASS_NAME" value="ua.home.controller.GameControllerTest" />
+      <option name="METHOD_NAME" value="givenGreetURI_whenMockMVC_thenGetJson" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
+      <item itemvalue="JUnit.GameControllerTest" />
+      <item itemvalue="JUnit.GameControllerTest.givenGreetURI_whenMockMVC_thenGetJson" />
       <item itemvalue="Gradle.guess-mvc [build]" />
       <item itemvalue="Gradle.guess-mvc [cargoRunLocal]" />
       <item itemvalue="Gradle.guess-mvc [cargoStopLocal]" />
-      <item itemvalue="JUnit.GameServiceImplTest" />
-      <item itemvalue="JUnit.GameControllerTest" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.GameServiceImplTest" />
-        <item itemvalue="JUnit.GameControllerTest" />
         <item itemvalue="Gradle.guess-mvc [cargoStopLocal]" />
+        <item itemvalue="JUnit.GameControllerTest" />
         <item itemvalue="Gradle.guess-mvc [cargoRunLocal]" />
         <item itemvalue="Gradle.guess-mvc [build]" />
+        <item itemvalue="JUnit.GameControllerTest.givenGreetURI_whenMockMVC_thenGetJson" />
       </list>
     </recent_temporary>
   </component>
@@ -952,9 +931,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="GameServiceImplTest - 2019.03.20 at 21h 04m 51s.xml">
-      <configuration name="GameServiceImplTest" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="GameControllerTest - 2019.03.20 at 21h 05m 04s.xml">
       <configuration name="GameControllerTest" configurationId="JUnit" />
     </history-entry>
@@ -970,15 +946,29 @@
     <history-entry file="GameServiceImplTest - 2019.03.20 at 22h 51m 32s.xml">
       <configuration name="GameServiceImplTest" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="GameControllerTest - 2019.03.20 at 23h 21m 13s.xml">
+      <configuration name="GameControllerTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="GameControllerTest_givenGreetURI_whenMockMVC_thenGetJson - 2019.03.20 at 23h 25m 30s.xml">
+      <configuration name="GameControllerTest.givenGreetURI_whenMockMVC_thenGetJson" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="GameControllerTest_givenGreetURI_whenMockMVC_thenGetJson - 2019.03.20 at 23h 26m 02s.xml">
+      <configuration name="GameControllerTest.givenGreetURI_whenMockMVC_thenGetJson" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="GameControllerTest_givenGreetURI_whenMockMVC_thenGetJson - 2019.03.20 at 23h 26m 30s.xml">
+      <configuration name="GameControllerTest.givenGreetURI_whenMockMVC_thenGetJson" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="GameControllerTest - 2019.03.20 at 23h 27m 43s.xml">
+      <configuration name="GameControllerTest" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5959000" />
+    <option name="totallyTimeSpent" value="7556000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="0" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25340393" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25340393" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
@@ -988,7 +978,7 @@
       <window_info id="Image Layers" order="7" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.3262295" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3262295" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -1052,6 +1042,18 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/ua/home/controller/GameControllerTest.java</url>
+          <line>48</line>
+          <properties />
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/main/java/ua/home/wire/GameResponse.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -1070,6 +1072,48 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/home/config/Config.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/home/Util/WebAppInitializer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="20" selection-start-line="20" selection-end-line="20" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/home/controller/GameController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="28" column="36" selection-start-line="28" selection-start-column="36" selection-end-line="28" selection-end-column="36" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/home/service/GameService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="23" column="42" lean-forward="true" selection-start-line="23" selection-start-column="42" selection-end-line="23" selection-end-column="42" />
+          <folding>
+            <element signature="e#511#512#0" expanded="true" />
+            <element signature="e#540#541#0" expanded="true" />
+            <element signature="e#620#621#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/ua/home/service/GameServiceImplTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="248">
@@ -1084,48 +1128,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/ua/home/controller/GameControllerTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="13" column="43" lean-forward="true" selection-start-line="13" selection-start-column="43" selection-end-line="13" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/home/controller/GameController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="28" column="36" selection-start-line="28" selection-start-column="36" selection-end-line="28" selection-end-column="36" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/home/config/Config.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/home/service/GameService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="321">
-          <caret line="26" column="1" lean-forward="true" selection-start-line="26" selection-start-column="1" selection-end-line="26" selection-end-column="1" />
-          <folding>
-            <element signature="e#511#512#0" expanded="true" />
-            <element signature="e#540#541#0" expanded="true" />
-            <element signature="e#584#585#0" expanded="true" />
-            <element signature="e#620#621#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/home/Util/WebAppInitializer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="20" selection-start-line="20" selection-end-line="20" />
+        <state relative-caret-position="219">
+          <caret line="52" column="113" selection-start-line="52" selection-start-column="113" selection-end-line="52" selection-end-column="113" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
