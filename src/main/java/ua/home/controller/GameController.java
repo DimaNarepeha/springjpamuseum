@@ -22,11 +22,11 @@ public class GameController {
         this.gameService = gameService;
     }
 
-    @RequestMapping(value = "/game/{num}", method = RequestMethod.GET)
+    @RequestMapping(value = "/play/{number}", method = RequestMethod.GET)
     @ResponseBody
-    public ResponseEntity<String> play(@PathVariable String num) {
+    public ResponseEntity<String> play(@PathVariable String number) {
 
-        gameService.isGameWon(num);
+        gameService.isGameWon(number);
 
         GameResponse response = new GameResponse(gameService);
 
