@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="ua.home.service.GameServiceImplTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2019-03-20T19:15:55" hostname="DESKTOP-QUT4GD8" time="0.001">
+<testsuite name="ua.home.service.GameServiceImplTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2019-03-20T20:41:05" hostname="DESKTOP-QUT4GD8" time="0.002">
   <properties/>
   <testcase name="whenGameIsWonResultIsReturned" classname="ua.home.service.GameServiceImplTest" time="0.0"/>
   <testcase name="whenGameIsCheatedResultIsReturned" classname="ua.home.service.GameServiceImplTest" time="0.0"/>
