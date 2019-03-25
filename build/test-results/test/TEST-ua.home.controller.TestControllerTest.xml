@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="ua.home.controller.TestControllerTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2019-03-24T11:58:08" hostname="DESKTOP-QUT4GD8" time="0.607">
+<testsuite name="ua.home.controller.TestControllerTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2019-03-25T13:04:20" hostname="DESKTOP-QUT4GD8" time="0.576">
   <properties/>
-  <testcase name="givenGameURI_whenMockMVC_thenGetStatus" classname="ua.home.controller.TestControllerTest" time="0.316"/>
-  <testcase name="givenGreetURI_whenMockMVC_thenGetContentType" classname="ua.home.controller.TestControllerTest" time="0.099"/>
-  <testcase name="givenGreetURI_whenMockMVC_thenGetJson" classname="ua.home.controller.TestControllerTest" time="0.189"/>
+  <testcase name="givenGameURI_whenMockMVC_thenGetStatus" classname="ua.home.controller.TestControllerTest" time="0.309"/>
+  <testcase name="givenGreetURI_whenMockMVC_thenGetContentType" classname="ua.home.controller.TestControllerTest" time="0.139"/>
+  <testcase name="givenGreetURI_whenMockMVC_thenGetJson" classname="ua.home.controller.TestControllerTest" time="0.125"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
