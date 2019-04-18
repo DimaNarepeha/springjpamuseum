@@ -1,10 +1,7 @@
 package ua.home;
 
-import org.springframework.context.MessageSource;
-import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 import org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
-import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
 import org.springframework.orm.jpa.JpaTransactionManager;
@@ -18,7 +15,13 @@ import ua.home.service.GameService;*/
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.ViewResolver;
+import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+import org.springframework.web.servlet.view.InternalResourceViewResolver;
+import org.springframework.web.servlet.view.JstlView;
 import ua.home.repository.TestRepository;
 
 import javax.persistence.EntityManagerFactory;
@@ -30,14 +33,29 @@ import java.util.Properties;
 @EnableTransactionManagement
 @ComponentScan
 @EnableJpaRepositories(basePackageClasses = TestRepository.class)
-public class Config {
+public class Config extends WebMvcConfigurerAdapter {
 
    /* @Bean
     public GameService gameService() {
         return new GameService();
     }*/
-
-
+   @Override
+   public void addResourceHandlers(ResourceHandlerRegistry registry) {
+       super.addResourceHandlers(registry);
+       registry.addResourceHandler("/resources/**")
+               .addResourceLocations("/views/resources/");
+   }
+    public void configureDefaultServerletHandling(DefaultServletHandlerConfigurer configurer){
+        configurer.enable();
+    }
+    @Bean
+    public ViewResolver getViewResolver(){
+        InternalResourceViewResolver resolver = new InternalResourceViewResolver();
+        resolver.setViewClass(JstlView.class);
+        resolver.setPrefix("views/");
+        resolver.setSuffix(".jsp");
+        return resolver;
+    }
 
     @Bean
     public PlatformTransactionManager transactionManager(EntityManagerFactory emf) {
