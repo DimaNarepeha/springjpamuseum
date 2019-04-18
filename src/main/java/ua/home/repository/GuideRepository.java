@@ -13,4 +13,6 @@ import java.util.List;
 public interface GuideRepository extends CrudRepository<Guide, Integer> {
     List<Guide> findAll();
     void deleteById(Integer integer);
+    Guide getGuideById(Integer integer);
+    boolean existsById(Integer integer);
 }

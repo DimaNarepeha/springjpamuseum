@@ -1,6 +1,11 @@
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ page import="static java.lang.System.out" %>
-<%@ page import="com.softserve.academy.entity.GuideEntity" %>
-<%@ page import="java.util.List" %><%--<%@ page contentType="index/html;charset=UTF-8" language="java" %>--%>
+<%--<%@ page import="com.softserve.academy.entity.GuideEntity" %>--%>
+<%@ page import="java.util.List" %>
+<%@ page import="ua.home.entity.Guide" %><%--<%@ page contentType="index/html;charset=UTF-8" language="java" %>--%>
+<spring:url value="/update"  />
+<spring:url value="/update" var="updated"  />
+
 <html>
 <head>
     <title>Add new user</title>
@@ -15,12 +20,12 @@
 <div class="w3-container w3-padding">
 
     <%
-        List<GuideEntity> names = (List<GuideEntity>) request.getAttribute("userNames1");
+        List<Guide> names = (List<Guide>) request.getAttribute("guides");
 
         if (names != null && !names.isEmpty()) {
             out.println("<ul class=\"w3-ul\">");
-            for (GuideEntity s : names) {
-                out.println("<li class=\"w3-hover-sand\">"+s.getId()+"." + s.getFirstname() + s.getLastname() + "</li>");
+            for (Guide s : names) {
+                out.println("<li class=\"w3-hover-sand\">"+s.getId()+"." + s.getFirstName() + s.getLastName() + "</li>");
             }
             out.println("</ul>");
 
@@ -65,7 +70,7 @@
             "</div>");
 %>
 <div class="w3-container w3-grey w3-opacity w3-right-align w3-padding">
-    <button class="w3-btn w3-round-large" onclick="location.href='/'">Back to main</button>
+    <button class="w3-btn w3-round-large" onclick="location.href='/guess_number'">Back to main</button>
 </div>
 </body>
 </html>

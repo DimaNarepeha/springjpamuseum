@@ -26,4 +26,13 @@ public class GuideService {
     public void deleteGuides(int guide){
         guideRepository.deleteById(guide);
     }
+
+    public void updateGuides(Guide guide){
+        if(!guideRepository.existsById(guide.getId()))return;
+        Guide guide1 = guideRepository.getGuideById(guide.getId());
+       // guideRepository.deleteById(guide.getId());
+        guide1.setFirstName(guide.getFirstName());
+        guide1.setLastName(guide.getLastName());
+        guideRepository.save(guide1);
+    }
 }

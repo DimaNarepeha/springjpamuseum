@@ -42,4 +42,19 @@ public class GuideController {
         guideService.deleteGuides(Integer.parseInt(id));
         return new ModelAndView("delete","deleted",id);
     }
+
+    @GetMapping("/update")
+    public ModelAndView updateGuide() {
+        return new ModelAndView("update","guides",guideService.findAllGuides());
+    }
+    @PostMapping("/update")
+    public ModelAndView updateGuide(@RequestParam String id,@RequestParam String first,
+                                    @RequestParam String last) {
+        Guide guide = new Guide();
+        guide.setId(Integer.parseInt(id));
+        guide.setFirstName(first);
+        guide.setLastName(last);
+        guideService.updateGuides(guide);
+        return new ModelAndView("update","guides",guideService.findAllGuides());
+    }
 }
