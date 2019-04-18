@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="ua.home.service.TestServiceTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-04-18T10:12:47" hostname="DESKTOP-QUT4GD8" time="0.407">
+<testsuite name="ua.home.service.TestServiceTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-04-18T14:10:32" hostname="DESKTOP-QUT4GD8" time="0.353">
   <properties/>
-  <testcase name="whenExceptionThrown_thenAssertionSucceeds" classname="ua.home.service.TestServiceTest" time="0.407"/>
+  <testcase name="whenExceptionThrown_thenAssertionSucceeds" classname="ua.home.service.TestServiceTest" time="0.353"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
 SLF4J: Defaulting to no-operation (NOP) logger implementation
 SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
-квіт. 18, 2019 1:12:43 PM org.hibernate.jpa.internal.util.LogHelper logPersistenceUnitInformation
+квіт. 18, 2019 5:10:28 PM org.hibernate.jpa.internal.util.LogHelper logPersistenceUnitInformation
 INFO: HHH000204: Processing PersistenceUnitInfo [name: default]
-квіт. 18, 2019 1:12:43 PM org.hibernate.Version logVersion
+квіт. 18, 2019 5:10:28 PM org.hibernate.Version logVersion
 INFO: HHH000412: Hibernate Core {5.4.1.Final}
-квіт. 18, 2019 1:12:44 PM org.hibernate.annotations.common.reflection.java.JavaReflectionManager <clinit>
+квіт. 18, 2019 5:10:28 PM org.hibernate.annotations.common.reflection.java.JavaReflectionManager <clinit>
 INFO: HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
-квіт. 18, 2019 1:12:44 PM org.hibernate.dialect.Dialect <init>
+квіт. 18, 2019 5:10:29 PM org.hibernate.dialect.Dialect <init>
 INFO: HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
-квіт. 18, 2019 1:12:45 PM org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator initiateService
+квіт. 18, 2019 5:10:30 PM org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator initiateService
 INFO: HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
 ]]></system-err>
 </testsuite>

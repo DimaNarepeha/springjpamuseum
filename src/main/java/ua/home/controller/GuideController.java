@@ -33,4 +33,13 @@ public class GuideController {
         guideService.saveGuides(guide);
         return new ModelAndView("add","added",lastname);
     }
+    @GetMapping("/delete")
+    public ModelAndView deleteGuide() {
+        return new ModelAndView("delete","guides",guideService.findAllGuides());
+    }
+    @PostMapping("/delete")
+    public ModelAndView deleteGuide(@RequestParam String id) {
+        guideService.deleteGuides(Integer.parseInt(id));
+        return new ModelAndView("delete","deleted",id);
+    }
 }

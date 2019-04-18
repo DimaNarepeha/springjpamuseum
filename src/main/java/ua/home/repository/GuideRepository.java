@@ -11,6 +11,6 @@ import java.util.List;
 @Repository
 @Transactional
 public interface GuideRepository extends CrudRepository<Guide, Integer> {
-
     List<Guide> findAll();
+    void deleteById(Integer integer);
 }

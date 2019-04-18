@@ -23,4 +23,7 @@ public class GuideService {
 
         guideRepository.save(guide);
     }
+    public void deleteGuides(int guide){
+        guideRepository.deleteById(guide);
+    }
 }
