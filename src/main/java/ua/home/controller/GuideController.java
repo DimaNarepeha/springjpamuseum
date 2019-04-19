@@ -35,7 +35,7 @@ public class GuideController {
         guide.setLastName(lastname);
         guideService.saveGuides(guide);
 
-        testDAO.save();
+       // testDAO.save();
         return new ModelAndView("add","added",lastname);
     }
     @GetMapping("/delete")
@@ -44,6 +44,7 @@ public class GuideController {
     }
     @PostMapping("/delete")
     public ModelAndView deleteGuide(@RequestParam String id) {
+
         guideService.deleteGuides(Integer.parseInt(id));
         return new ModelAndView("delete","deleted",id);
     }

@@ -38,7 +38,7 @@ throws ServletException
 
     @Override
     protected Class<?>[] getRootConfigClasses() {
-        return new Class<?>[] { Config.class };
+        return new Class<?>[] { PersistenceConfig.class };
     }
 
     @Override

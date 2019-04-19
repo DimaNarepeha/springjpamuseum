@@ -2,6 +2,7 @@ package ua.home.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import ua.home.dao.GuideDAO;
 import ua.home.entity.Guide;
 import ua.home.repository.GuideRepository;
 
@@ -9,7 +10,7 @@ import java.util.List;
 @Service
 public class GuideService {
     @Autowired
-    GuideRepository guideRepository;
+    GuideDAO guideDAO;
     public List<Guide> findAllGuides(){
 /*
         Guide guide = new Guide();
@@ -17,22 +18,17 @@ public class GuideService {
         guide.setFirstName("Nastia");
         guide.setLastName("Nastia");
         guideRepository.save(guide);*/
-        return guideRepository.findAll();
+        return guideDAO.findAll();
     }
     public void saveGuides(Guide guide){
 
-        guideRepository.save(guide);
+        guideDAO.save(guide);
     }
     public void deleteGuides(int guide){
-        guideRepository.deleteById(guide);
+        guideDAO.deleteById(guide);
     }
 
     public void updateGuides(Guide guide){
-        if(!guideRepository.existsById(guide.getId()))return;
-        Guide guide1 = guideRepository.getGuideById(guide.getId());
-       // guideRepository.deleteById(guide.getId());
-        guide1.setFirstName(guide.getFirstName());
-        guide1.setLastName(guide.getLastName());
-        guideRepository.save(guide1);
+       guideDAO.update(guide);
     }
 }
