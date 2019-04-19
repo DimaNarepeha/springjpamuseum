@@ -7,16 +7,16 @@ import org.hibernate.annotations.*;
 import javax.persistence.*;
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import java.io.Serializable;
 
 @Entity
 @Table
-    public class Test {
+    public class Test implements Serializable {
 
         @Id
         @GeneratedValue(strategy = GenerationType.AUTO)
         private Integer id;
-        @Column
-
+        @Column(name = "number")
         private Integer number;
     public Integer getId() {
         return id;

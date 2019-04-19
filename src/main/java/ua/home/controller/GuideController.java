@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+import ua.home.dao.TestDAO;
 import ua.home.entity.Guide;
 import ua.home.service.GuideService;
 
@@ -15,6 +16,8 @@ import ua.home.service.GuideService;
 public class GuideController {
     @Autowired
     GuideService guideService;
+    @Autowired
+    TestDAO testDAO;
     @GetMapping("/list")
     public ModelAndView all() {
         return new ModelAndView("list", "guides", guideService.findAllGuides());
@@ -31,6 +34,8 @@ public class GuideController {
         guide.setFirstName(firstname);
         guide.setLastName(lastname);
         guideService.saveGuides(guide);
+
+        testDAO.save();
         return new ModelAndView("add","added",lastname);
     }
     @GetMapping("/delete")
