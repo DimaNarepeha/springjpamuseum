@@ -3,6 +3,7 @@ package ua.home.dao;
 import ua.home.entity.Guide;
 
 import java.util.List;
+import java.util.Map;
 
 //
 //@Repository
@@ -15,5 +16,5 @@ public interface GuideDAO /*extends GenericDAO<Guide, Integer>*/ {
      Guide deleteById(Integer guide_id);
      Guide findById(Integer find_department_id);
 
-
+    Map<String, List<String>> getGuidesByExhibit();
 }

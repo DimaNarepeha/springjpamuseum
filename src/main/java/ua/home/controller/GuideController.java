@@ -81,4 +81,11 @@ try {
         return modelAndView;
 
     }
+
+    @GetMapping("/find")
+    public ModelAndView findRelations() {
+        return new ModelAndView("relations","relations",guideService.getGuideExhibit());
+    }
+
+
 }

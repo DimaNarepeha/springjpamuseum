@@ -7,6 +7,8 @@ import ua.home.entity.Guide;
 
 
 import java.util.List;
+import java.util.Map;
+
 @Service
 public class GuideService {
     @Autowired
@@ -28,5 +30,10 @@ public class GuideService {
     public boolean updateGuides(Guide guide){
        if(guideDAO.update(guide)==null)return false;
        else return true;
+    }
+
+    public Map<String, List<String>> getGuideExhibit(){
+
+        return guideDAO.getGuidesByExhibit();
     }
 }

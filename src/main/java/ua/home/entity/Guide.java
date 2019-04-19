@@ -4,7 +4,6 @@ import java.io.Serializable;
 
 @Entity
 @Table(name ="guide")
-
 public class Guide implements Serializable {
 
     @Id
