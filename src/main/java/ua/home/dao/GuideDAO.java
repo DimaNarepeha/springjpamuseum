@@ -9,10 +9,10 @@ import java.util.List;
 //@Transactional
 
 public interface GuideDAO /*extends GenericDAO<Guide, Integer>*/ {
-      Integer save(Guide guide);
+      Guide save(Guide guide);
      List<Guide> findAll();
      Guide update(Guide guide);
-      void deleteById(Integer guide_id);
+     Guide deleteById(Integer guide_id);
      Guide findById(Integer find_department_id);
 
 
