@@ -26,4 +26,9 @@ public class Material {
     public void setMaterial_name(String material_name) {
         this.material_name = material_name;
     }
+
+    @Override
+    public String toString() {
+        return  material_name;
+    }
 }

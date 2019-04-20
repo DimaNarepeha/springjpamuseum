@@ -1,4 +1,5 @@
 <%@ page import="java.util.List" %>
+<%@ page import="ua.home.entity.Exhibit" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <html>
@@ -19,7 +20,7 @@
             <h2>Exhibits</h2>
         </div>
         <%
-            List<ExhibitEntity> names = (List<ExhibitEntity>) request.getAttribute("exhibits");
+            List<Exhibit> names = (List<Exhibit>) request.getAttribute("exhibits");
 
             if (names != null && !names.isEmpty()) {
                 out.println("<table class=\"table\">\n" +
@@ -33,15 +34,13 @@
                         "    </tr>\n" +
                         "  </thead>");
                 out.println("<tbody>");
-                for (ExhibitEntity exhibit : names) {
+                for (Exhibit exhibit : names) {
                     out.println("<tr class=\"w3-hover-sand\">");
                     out.println("<th scope=\"row\">"
                             + exhibit.getExhibit_name()
-                            + "</th><td>" + exhibit.getFirstName() + " "
-                            + exhibit.getLastName() + "</td>"
-                            + "<td>" + exhibit.getTechnique_name() + "</td>"
-                            + "<td>" + exhibit.getMaterial_name() + "</td>"
-                            + "<td>" + exhibit.getHall_name() + "</td>");
+                            + "<td>" + exhibit.getTechnique() + "</td>"
+                            + "<td>" + exhibit.getMaterial() + "</td>"
+                            + "<td>" + exhibit.getHall() + "</td>");
 
                 }
                 out.println("</tbody>" + "</table>");

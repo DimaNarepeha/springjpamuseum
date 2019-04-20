@@ -26,4 +26,9 @@ public class Hall {
     public void setHall_name(String hall_name) {
         this.hall_name = hall_name;
     }
+
+    @Override
+    public String toString() {
+        return hall_name;
+    }
 }

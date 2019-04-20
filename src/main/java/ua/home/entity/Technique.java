@@ -23,7 +23,13 @@ public class Technique {
         return technique_name;
     }
 
+
     public void setTechnique_name(String technique_name) {
         this.technique_name = technique_name;
+    }
+
+    @Override
+    public String toString() {
+        return technique_name;
     }
 }
