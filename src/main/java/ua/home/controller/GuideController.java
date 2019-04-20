@@ -71,13 +71,21 @@ try {
         }catch(NumberFormatException e){
             ModelAndView modelAndView = new ModelAndView("update","guides",null);
             modelAndView.addObject("guides",guideService.findAllGuides());
+            modelAndView.addObject("result",false);
             return modelAndView;
         }
         guide.setFirstName(first);
         guide.setLastName(last);
-        guideService.updateGuides(guide);
+      if(!guideService.updateGuides(guide)){
+          ModelAndView modelAndView = new ModelAndView("update","guides",null);
+          modelAndView.addObject("guides",guideService.findAllGuides());
+          modelAndView.addObject("result",false);
+          return modelAndView;
+
+
+      }
         ModelAndView modelAndView = new ModelAndView("update","guides",guideService.findAllGuides());
-        modelAndView.addObject("result",guideService.findAllGuides());
+        modelAndView.addObject("result",true);
         return modelAndView;
 
     }
