@@ -15,7 +15,7 @@ public class Exhibit {
     @ManyToMany(cascade = {
             CascadeType.ALL
     })
-    @JoinTable(name = "author",
+    @JoinTable(name = "author_exhibit",
             joinColumns = @JoinColumn(name = "id_author"),
             inverseJoinColumns = @JoinColumn(name = "id_exhibit")
     )
