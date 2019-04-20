@@ -23,12 +23,12 @@ cargo {
     port = 8080
 
     deployable{
-        context = "guess_number"
+        context = "/"
         file = file('build/libs/guess-mvc-1.0-SNAPSHOT.war')
     }
 
     local {
-        homeDir = file('D:/apache-tomcat-8.5.38')
+        homeDir = file('C:/apache-tomcat-8.5.38')
     }
 }
 

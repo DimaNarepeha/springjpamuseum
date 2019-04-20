@@ -1,4 +1,5 @@
 <%@ page import="java.util.List" %>
+<%@ page import="com.softserve.academy.entity.GuideEntity" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="static java.lang.System.out" %>
 <%@ page import="java.util.Map" %>
@@ -56,6 +57,6 @@
 </div>
 
 <div class="w3-container w3-grey w3-opacity w3-right-align w3-padding">
-    <button class="w3-btn w3-round-large" onclick="location.href='/guess_number'">Back to main</button>
+    <button class="w3-btn w3-round-large" onclick="location.href='/'">Back to main</button>
 </div>
 </body>
