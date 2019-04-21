@@ -1,6 +1,8 @@
 package ua.home.dao.Impl;
 
 
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import ua.home.dao.ExhibitDao;
@@ -12,20 +14,22 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.transaction.Transactional;
 import java.util.List;
 
+@Transactional
 @Repository
-
 public class ExhibitDaoImpl implements ExhibitDao {
     @Autowired
-    EntityManagerFactory entityManagerFactory;
-
+    private EntityManagerFactory entityManagerFactory;
+    @Autowired
+    private SessionFactory sessionFactory;
     @Override
-    @Transactional
     public boolean saveExhibit(Exhibit exhibit) {
         System.out.println("inside saveExhibit");
-        EntityManager entityManager = entityManagerFactory.createEntityManager();
-        entityManager.getTransaction().begin();
-        entityManager.persist(exhibit);
-        entityManager.getTransaction().commit();
+        Session session= sessionFactory.getCurrentSession();
+//        entityManager.getTransaction().begin();
+
+        session.save(exhibit);
+        session.flush();
+//        entityManager.getTransaction().commit();
         return true;
     }
 
