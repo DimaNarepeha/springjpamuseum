@@ -13,14 +13,20 @@ import javax.transaction.Transactional;
 import java.util.List;
 
 @Repository
-@Transactional
+
 public class ExhibitDaoImpl implements ExhibitDao {
     @Autowired
     EntityManagerFactory entityManagerFactory;
 
     @Override
+    @Transactional
     public boolean saveExhibit(Exhibit exhibit) {
-        return false;
+        System.out.println("inside saveExhibit");
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        entityManager.getTransaction().begin();
+        entityManager.persist(exhibit);
+        entityManager.getTransaction().commit();
+        return true;
     }
 
     @Override
