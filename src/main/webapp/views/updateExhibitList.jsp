@@ -1,13 +1,13 @@
 <%@ page import="java.util.List" %>
+<%@ page import="ua.home.entity.Exhibit" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ page import="com.softserve.academy.entity.ExhibitEntity" %>
 
 <html>
 <head>
     <title>Exhibits list</title>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-    <script src="js/buttonToSelectToBeUpdated.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/js/buttonToSelectToBeUpdated.js"></script>
 </head>
 
 <body class="w3-light-grey">
@@ -21,7 +21,7 @@
             <h2>Exhibits</h2>
         </div>
         <%
-            List<ExhibitEntity> names = (List<ExhibitEntity>) request.getAttribute("exhibits");
+            List<Exhibit> names = (List<Exhibit>) request.getAttribute("exhibits");
 
             if (names != null && !names.isEmpty()) {
                 out.println("<table class=\"table\">\n" +
@@ -35,16 +35,15 @@
                         "    </tr>\n" +
                         "  </thead>");
                 out.println("<tbody>");
-                for (ExhibitEntity exhibit : names) {
+                for (Exhibit exhibit : names) {
                     out.println("<tr class=\"w3-hover-sand\">");
                     out.println("<th scope=\"row\">"
                             + exhibit.getExhibit_name()
-                            + "</th><td>" + exhibit.getFirstName() + " "
-                            + exhibit.getLastName() + "</td>"
-                            + "<td>" + exhibit.getTechnique_name() + "</td>"
-                            + "<td>" + exhibit.getMaterial_name() + "</td>"
-                            + "<td>" + exhibit.getHall_name() + "</td>");
-                    out.println("<td><button id=\"" + exhibit.getId_exhibit() + "\" type=\"button\"class=\"btn btn-primary\" onclick=\"proceed(this.id);\">Update</button></td>");
+                            + "</th>"
+                            + "<td>" + exhibit.getTechnique() + "</td>"
+                            + "<td>" + exhibit.getMaterial() + "</td>"
+                            + "<td>" + exhibit.getHall() + "</td>");
+                    out.println("<td><button id=\"" + exhibit.getId() + "\" type=\"button\"class=\"btn btn-primary\" onclick=\"proceed(this.id);\">Update</button></td>");
                 }
                 out.println("</tbody>" + "</table>");
             } else out.println("<div class=\"w3-panel w3-red w3-display-container w3-card-4 w3-round\">\n"

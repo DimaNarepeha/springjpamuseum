@@ -1,11 +1,13 @@
+<%@ page import="ua.home.entity.Author" %>
+<%@ page import="ua.home.entity.Exhibit" %>
+<%@ page import="java.util.Iterator" %>
 <%@ page import="java.util.List" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ page import="com.softserve.academy.entity.ExhibitEntity" %>
 
 <html>
 <head>
     <title>Exhibits list</title>
-    <script src="js/onClickExhibits.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/js/onClickExhibits.js"></script>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 </head>
@@ -21,9 +23,9 @@
             <h2>Exhibits</h2>
         </div>
         <%
-            List<ExhibitEntity> names = (List<ExhibitEntity>) request.getAttribute("exhibits");
+            List<Exhibit> exhibits = (List<Exhibit>) request.getAttribute("exhibits");
 
-            if (names != null && !names.isEmpty()) {
+            if (exhibits != null && !exhibits.isEmpty()) {
                 out.println("<table class=\"table\">\n" +
                         "  <thead>\n" +
                         "    <tr>\n" +
@@ -35,16 +37,19 @@
                         "    </tr>\n" +
                         "  </thead>");
                 out.println("<tbody>");
-                for (ExhibitEntity exhibit : names) {
-                    out.println("<tr class=\"w3-hover-sand\" id="+exhibit.getId_exhibit()+">");
+
+                for (Exhibit exhibit : exhibits) {
+                    Iterator iterator=exhibit.getAuthors().iterator();
+                    Author author=((Author)iterator.next());
+                    out.println("<tr class=\"w3-hover-sand\" id="+exhibit.getId()+">");
                     out.println("<th scope=\"row\" >"
                             + exhibit.getExhibit_name()
-                            + "</th><td>" + exhibit.getFirstName() + " "
-                            + exhibit.getLastName() + "</td>"
-                            + "<td>" + exhibit.getTechnique_name() + "</td>"
-                            + "<td>" + exhibit.getMaterial_name() + "</td>"
-                            + "<td>" + exhibit.getHall_name() + "</td>");
-                    out.println("<td><button id=\"" + exhibit.getId_exhibit() + "\" type=\"button\"class=\"btn btn-primary\" onclick=\"proceed(this.id);\">Add guides</button></td>");
+                            + "</th><td>" + author.getFirstname() + " "
+                            + author.getLastname() + "</td>"
+                            + "<td>" + exhibit.getTechnique() + "</td>"
+                            + "<td>" + exhibit.getMaterial() + "</td>"
+                            + "<td>" + exhibit.getHall() + "</td>");
+                    out.println("<td><button id=\"" + exhibit.getId() + "\" type=\"button\"class=\"btn btn-primary\" onclick=\"proceed(this.id);\">Add guides</button></td>");
                 }
                 out.println("</tbody>" + "</table>");
 

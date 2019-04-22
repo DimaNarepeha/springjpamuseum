@@ -59,7 +59,7 @@ public class PersistenceConfig {
         sf.setHibernateProperties(getHibernateProperties());
         return sf;
     }
-    
+
     private Properties getHibernateProperties() {
         Properties props = new Properties();
         props.put("hibernate.format_sql", env.getProperty("hibernate.format_sql"));
@@ -68,7 +68,7 @@ public class PersistenceConfig {
         props.put("hibernate.hbm2ddl.auto", env.getProperty("hibernate.hbm2ddl.auto"));
         return props;
     }
-    
+
 //    @Bean
 //    public HibernateTransactionManager transactionManager(SessionFactory sf) {
 //        return new HibernateTransactionManager(sf);

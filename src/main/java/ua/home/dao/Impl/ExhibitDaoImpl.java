@@ -21,10 +21,10 @@ public class ExhibitDaoImpl implements ExhibitDao {
     private EntityManagerFactory entityManagerFactory;
     @Autowired
     private SessionFactory sessionFactory;
+
     @Override
     public boolean saveExhibit(Exhibit exhibit) {
-        System.out.println("inside saveExhibit");
-        Session session= sessionFactory.getCurrentSession();
+        Session session = sessionFactory.getCurrentSession();
 //        entityManager.getTransaction().begin();
 
         session.save(exhibit);
@@ -44,7 +44,15 @@ public class ExhibitDaoImpl implements ExhibitDao {
 
     @Override
     public Exhibit getExhibitById(int id) {
-        return null;
+        Session sessionObj = sessionFactory.getCurrentSession();
+        Exhibit exhibit = null;
+        try {
+            exhibit = (Exhibit) sessionObj.get(Exhibit.class, id);
+        } catch (Exception sqlException) {
+            sqlException.printStackTrace();
+            return null;
+        }
+        return exhibit;
     }
 
     @Override
@@ -54,6 +62,14 @@ public class ExhibitDaoImpl implements ExhibitDao {
 
     @Override
     public int deleteExhibit(int id_exhibit) {
-        return 0;
+        Session sessionObj = sessionFactory.getCurrentSession();
+        try {
+            Exhibit exhibit = getExhibitById(id_exhibit);
+            if (exhibit == null) return 0;
+            sessionObj.delete(exhibit);
+        } catch (Exception sqlException) {
+            return 0;
+        }
+        return 1;
     }
 }
