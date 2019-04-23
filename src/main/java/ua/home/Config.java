@@ -31,7 +31,7 @@ public class Config extends WebMvcConfigurerAdapter {
    public void addResourceHandlers(ResourceHandlerRegistry registry) {
        super.addResourceHandlers(registry);
        registry.addResourceHandler("/resources/**")
-               .addResourceLocations("/views/resources/");
+               .addResourceLocations("/WEB-INF/resources/");
    }
     public void configureDefaultServerletHandling(DefaultServletHandlerConfigurer configurer){
         configurer.enable();
@@ -40,7 +40,7 @@ public class Config extends WebMvcConfigurerAdapter {
     public ViewResolver getViewResolver(){
         InternalResourceViewResolver resolver = new InternalResourceViewResolver();
         resolver.setViewClass(JstlView.class);
-        resolver.setPrefix("views/");
+        resolver.setPrefix("/WEB-INF/views/");
         resolver.setSuffix(".jsp");
         return resolver;
     }

@@ -29,9 +29,7 @@ public class GuideController {
     public ModelAndView addGuide(@RequestParam String firstname,@RequestParam String lastname) {
 
         if(firstname.equals("") || lastname.equals("")){
-
             return new ModelAndView("add","added",false);
-
         }
         Guide guide = new Guide();
         guide.setFirstName(firstname);
@@ -69,6 +67,12 @@ try {
         try {
             guide.setId(Integer.parseInt(id));
         }catch(NumberFormatException e){
+            ModelAndView modelAndView = new ModelAndView("update","guides",null);
+            modelAndView.addObject("guides",guideService.findAllGuides());
+            modelAndView.addObject("result",false);
+            return modelAndView;
+        }
+        if(first.equals("") || last.equals("")){
             ModelAndView modelAndView = new ModelAndView("update","guides",null);
             modelAndView.addObject("guides",guideService.findAllGuides());
             modelAndView.addObject("result",false);
