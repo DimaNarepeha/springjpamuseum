@@ -72,6 +72,12 @@ try {
             modelAndView.addObject("result",false);
             return modelAndView;
         }
+        if(first.equals("") || last.equals("")){
+            ModelAndView modelAndView = new ModelAndView("update","guides",null);
+            modelAndView.addObject("guides",guideService.findAllGuides());
+            modelAndView.addObject("result",false);
+            return modelAndView;
+        }
         guide.setFirstName(first);
         guide.setLastName(last);
       if(!guideService.updateGuides(guide)){
