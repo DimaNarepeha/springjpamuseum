@@ -3,7 +3,6 @@ package ua.home.dao.Impl;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.type.IntegerType;
 import org.hibernate.type.StringType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -21,6 +20,7 @@ import java.util.Map;
 
 
 @Repository
+@Transactional
 public class GuideDAOImpl implements GuideDAO {
     //static Session sessionObj;
     @Autowired

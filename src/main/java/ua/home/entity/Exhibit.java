@@ -14,22 +14,32 @@ public class Exhibit {
     String exhibit_name;
     @ManyToMany(cascade = {
             CascadeType.ALL
-    })
+    }, fetch = FetchType.EAGER)
     @JoinTable(name = "author_exhibit",
             joinColumns = @JoinColumn(name = "id_author"),
             inverseJoinColumns = @JoinColumn(name = "id_exhibit")
     )
     Set<Author> authors;
-    @ManyToOne
+
+
+    @ManyToOne(cascade = {
+            CascadeType.ALL
+    })
     @JoinColumn(name = "id_material")
     Material material;
-    @ManyToOne
+    @ManyToOne(cascade = {
+            CascadeType.ALL
+    })
     @JoinColumn(name = "id_technique")
     Technique technique;
-    @ManyToOne
+    @ManyToOne(cascade = {
+            CascadeType.ALL
+    })
     @JoinColumn(name = "id_hall")
     Hall hall;
-    @ManyToMany
+    @ManyToMany(cascade = {
+            CascadeType.ALL
+    })
     @JoinTable(name = "exhibit_guide",
             joinColumns = @JoinColumn(name = "id_guide"),
             inverseJoinColumns = @JoinColumn(name = "id_exhibit"))
@@ -92,4 +102,18 @@ public class Exhibit {
     public void setGuides(Set<Guide> guides) {
         this.guides = guides;
     }
+
+    @Override
+    public String toString() {
+        return "Exhibit{" +
+                "id=" + id +
+                ", exhibit_name='" + exhibit_name + '\'' +
+                ", authors=" + authors +
+                ", material=" + material +
+                ", technique=" + technique +
+                ", hall=" + hall +
+                ", guides=" + guides +
+                '}';
+    }
+
 }

@@ -1,5 +1,6 @@
-<%@ page import="com.softserve.academy.entity.ExhibitEntity" %>
-<%--<%@ page contentType="index/html;charset=UTF-8" language="java" %>--%>
+<%@ page import="ua.home.entity.Exhibit" %>
+<%@ page import="java.util.Iterator" %>
+<%@ page import="ua.home.entity.Author" %><%--<%@ page contentType="index/html;charset=UTF-8" language="java" %>--%>
 <html>
 <head>
     <title>Update new user</title>
@@ -38,11 +39,11 @@
                 }
             %>
             <form method="post" class="w3-selection w3-light-grey w3-padding">
-                <label>Exhibit name :</label> <input type="text" name="exhibitName" placeholder="Exhibit Name" value="<%if(request.getParameter("exhibitName")!=null){
-                    out.println(request.getParameter("exhibitName"));
+                <label>Exhibit name :</label> <input type="text" name="exhibitName" placeholder="Exhibit Name" value="<%if(request.getParameter("exhibit_name")!=null){
+                    out.println(request.getParameter("exhibit_name"));
                 }
                 else {
-                    out.println(((ExhibitEntity)request.getAttribute("exhibitToUpdate")).getExhibit_name());
+                    out.println(((Exhibit)request.getAttribute("exhibitToUpdate")).getExhibit_name());
                 } %>"
                                                      class="w3-input w3-animate-input w3-border w3-round-large"
                                                      style="width: 30%"><br/>
@@ -51,7 +52,8 @@
                     out.println(request.getParameter("firstname"));
                 }
                 else {
-                    out.println(((ExhibitEntity)request.getAttribute("exhibitToUpdate")).getFirstName());
+                    Iterator iterator=((Exhibit)request.getAttribute("exhibitToUpdate")).getAuthors().iterator();
+                    out.println(((Author)iterator.next()).getFirstname());
                 } %>"
                                                     class="w3-input w3-animate-input w3-border w3-round-large"
                                                     style="width: 30%"><br/>
@@ -60,7 +62,8 @@
                     out.println(request.getParameter("lastname"));
                 }
                 else {
-                    out.println(((ExhibitEntity)request.getAttribute("exhibitToUpdate")).getLastName());
+                    Iterator iterator=((Exhibit)request.getAttribute("exhibitToUpdate")).getAuthors().iterator();
+                    out.println(((Author)iterator.next()).getLastname());
                 } %>"
                                                          class="w3-input w3-animate-input w3-border w3-round-large"
                                                          style="width: 30%"><br/>
@@ -68,7 +71,7 @@
                     out.println(request.getParameter("hall"));
                 }
                 else {
-                    out.println(((ExhibitEntity)request.getAttribute("exhibitToUpdate")).getHall_name());
+                    out.println(((Exhibit)request.getAttribute("exhibitToUpdate")).getHall());
                 } %>"
                                              class="w3-input w3-animate-input w3-border w3-round-large"
                                              style="width: 30%"><br/>
@@ -76,7 +79,7 @@
                     out.println(request.getParameter("material"));
                 }
                 else {
-                    out.println(((ExhibitEntity)request.getAttribute("exhibitToUpdate")).getMaterial_name());
+                    out.println(((Exhibit)request.getAttribute("exhibitToUpdate")).getMaterial());
                 } %>"
                                                  class="w3-input w3-animate-input w3-border w3-round-large"
                                                  style="width: 30%"><br/>
@@ -84,7 +87,7 @@
                     out.println(request.getParameter("technique"));
                 }
                 else {
-                    out.println(((ExhibitEntity)request.getAttribute("exhibitToUpdate")).getTechnique_name());
+                    out.println(((Exhibit)request.getAttribute("exhibitToUpdate")).getTechnique());
                 } %>"
                                                   class="w3-input w3-animate-input w3-border w3-round-large"
                                                   style="width: 30%"><br/>
@@ -97,7 +100,8 @@
 </div>
 
 <div class="w3-container w3-grey w3-opacity w3-right-align w3-padding">
-    <button class="w3-btn w3-round-large" onclick="location.href='../..'">Back to main</button>
+    <button class="w3-btn w3-round-large" onclick="location.href='/'">Back to main</button>
 </div>
 </body>
+
 </html>

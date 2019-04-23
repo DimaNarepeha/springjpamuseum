@@ -1,6 +1,6 @@
-<%@ page import="java.util.List" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ page import="com.softserve.academy.entity.ExhibitEntity" %>
+<%@ page import="ua.home.entity.Exhibit" %>
+<%@ page import="java.util.List" %>
 
 <html>
 <head>
@@ -20,7 +20,7 @@
             <h2>Exhibits</h2>
         </div>
         <%
-            List<ExhibitEntity> names = (List<ExhibitEntity>) request.getAttribute("exhibits");
+            List<Exhibit> names = (List<Exhibit>) request.getAttribute("exhibits");
 
             if (names != null && !names.isEmpty()) {
                 out.println("<form action=\"\" method=\"post\">" +
@@ -28,7 +28,6 @@
                         "  <thead>\n" +
                         "    <tr>\n" +
                         "      <th scope=\"col\">Exhibit</th>\n" +
-                        "      <th scope=\"col\">Author</th>\n" +
                         "      <th scope=\"col\">Technique</th>\n" +
                         "      <th scope=\"col\">Material</th>\n" +
                         "      <th scope=\"col\">Hall</th>\n" +
@@ -36,16 +35,14 @@
                         "    </tr>\n" +
                         "  </thead>");
                 out.println("<tbody>");
-                for (ExhibitEntity exhibit : names) {
+                for (Exhibit exhibit : names) {
                     out.println("<tr class=\"w3-hover-sand\">");
                     out.println("<th scope=\"row\">"
                             + exhibit.getExhibit_name()
-                            + "</th><td>" + exhibit.getFirstName() + " "
-                            + exhibit.getLastName() + "</td>"
-                            + "<td>" + exhibit.getTechnique_name() + "</td>"
-                            + "<td>" + exhibit.getMaterial_name() + "</td>"
-                            + "<td>" + exhibit.getHall_name() + "</td>"
-                            + "<td><input type=\"checkbox\" name=\"toDelete\" value=\"" + exhibit.getId_exhibit() + "\"></td>"); //checkbox to submit delete by id
+                            + "<td>" + exhibit.getTechnique() + "</td>"
+                            + "<td>" + exhibit.getMaterial() + "</td>"
+                            + "<td>" + exhibit.getHall() + "</td>"
+                            + "<td><input type=\"checkbox\" name=\"toDelete\" value=\"" + exhibit.getId() + "\"></td>"); //checkbox to submit delete by id
 
                 }
                 out.println("</tbody></table>");
@@ -75,7 +72,7 @@
                 "</div>");
 %>
 <div class="w3-container w3-grey w3-opacity w3-right-align w3-padding">
-    <button class="w3-btn w3-round-large" onclick="location.href='../..'">Back to main</button>
+    <button class="w3-btn w3-round-large" onclick="location.href='/'">Back to main</button>
 </div>
 </body>
 </html>

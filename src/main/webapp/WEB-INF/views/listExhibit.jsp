@@ -27,7 +27,6 @@
                         "  <thead>\n" +
                         "    <tr>\n" +
                         "      <th scope=\"col\">Exhibit</th>\n" +
-                        "      <th scope=\"col\">Author</th>\n" +
                         "      <th scope=\"col\">Technique</th>\n" +
                         "      <th scope=\"col\">Material</th>\n" +
                         "      <th scope=\"col\">Hall</th>\n" +
@@ -55,7 +54,7 @@
 </div>
 
 <div class="w3-container w3-grey w3-opacity w3-right-align w3-padding">
-    <button class="w3-btn w3-round-large" onclick="location.href='../..'">Back to main</button>
+    <button class="w3-btn w3-round-large" onclick="location.href='/'">Back to main</button>
 </div>
 </body>
 </html>

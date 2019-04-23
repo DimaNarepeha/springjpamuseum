@@ -1,5 +1,6 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 
+
 <spring:url value="/resources/images/1.jpeg" var="a" />
 <spring:url value="/resources/images/2.jpg" var="b" />
 <spring:url value="/resources/images/3.jpg" var="c" />
@@ -64,6 +65,7 @@
         </ol>
         <div class="carousel-inner">
             <div class="carousel-item active">
+
                 <img src="${a}" class="d-block w-100" alt="...">
                 <div class="carousel-caption d-none d-md-block">
                     <h5>First slide</h5>
@@ -72,6 +74,7 @@
                 </div>
             </div>
             <div class="carousel-item">
+
                 <img src="${b}" class="d-block w-100" alt="...">
                 <div class="carousel-caption d-none d-md-block">
                     <h5>Second slide</h5>

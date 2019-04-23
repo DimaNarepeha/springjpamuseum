@@ -1,17 +1,19 @@
+<%@ page import="ua.home.entity.Author" %>
+<%@ page import="ua.home.entity.Exhibit" %>
+<%@ page import="ua.home.entity.Guide" %>
+<%@ page import="java.util.Iterator" %>
+<%@ page import="java.util.List" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page import="com.softserve.academy.entity.ExhibitEntity" %>
-<%@ page import="java.util.List" %>
-<%@ page
-        import="com.softserve.academy.entity.GuideEntity" %><%--<%@ page contentType="index/html;charset=UTF-8" language="java" %>--%>
+
 <html>
 <head>
     <title>Add new user</title>
     <script src="http://code.jquery.com/jquery.js"></script>
-    <script src="js/jquery-ui-git.js"></script>
-    <script src="js/buttonToUpdateRelations.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/js/jquery-ui-git.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/js/buttonToUpdateRelations.js"></script>
 
-    <script src="js/dragStuff.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/js/dragStuff.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
             integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
             crossorigin="anonymous"></script>
@@ -56,9 +58,9 @@
 
             <tbody class="connectedSortable">
             <%
-                ExhibitEntity exhibit = (ExhibitEntity) request.getAttribute("exhibit");
-                List<GuideEntity> currentGuides = (List<GuideEntity>) request.getAttribute("currentGuides");
-                List<GuideEntity> guidesInDatabase = (List<GuideEntity>) request.getAttribute("guidesInDatabase");
+                Exhibit exhibit = (Exhibit) request.getAttribute("exhibit");
+                List<Guide> currentGuides = (List<Guide>) request.getAttribute("currentGuides");
+                List<Guide> guidesInDatabase = (List<Guide>) request.getAttribute("guidesInDatabase");
                 if (exhibit != null) {
                     out.println("<table class=\"table connectedSortable\">\n <thead>\n" +
                             "            <tr>\n" +
@@ -72,13 +74,16 @@
                     out.println("<tbody class=\"connectedSortable\">");
 
                     out.println("<tr class=\"w3-hover-sand\">");
+                    Iterator iterator=exhibit.getAuthors().iterator();
+                    Author author= (Author) iterator.next();
+                    out.println(((Author)iterator.next()).getFirstname());
                     out.println("<th scope=\"row\">"
                             + exhibit.getExhibit_name()
-                            + "</th><td>" + exhibit.getFirstName() + " "
-                            + exhibit.getLastName() + "</td>"
-                            + "<td>" + exhibit.getTechnique_name() + "</td>"
-                            + "<td>" + exhibit.getMaterial_name() + "</td>"
-                            + "<td>" + exhibit.getHall_name() + "</td>");
+                            + "</th><td>" + author.getFirstname() + " "
+                            + author.getLastname() + "</td>"
+                            + "<td>" + exhibit.getTechnique() + "</td>"
+                            + "<td>" + exhibit.getMaterial() + "</td>"
+                            + "<td>" + exhibit.getHall() + "</td>");
 
                     out.println("</tbody>" + "</table><br><br>");
                     out.println("<table id=\"in\" class=\"table\">\n" +
@@ -88,11 +93,11 @@
 
                     out.println("<tbody  class=\"connectedSortable\">");
                     if(currentGuides!=null&&!currentGuides.isEmpty()){
-                        for(GuideEntity entity:currentGuides){
+                        for(Guide entity:currentGuides){
                             out.println("<tr class=\"w3-hover-sand table-success\" id="+entity.getId()+">");
                             out.println("<th scope=\"row\">"
-                                    + "</th><td>" + entity.getFirstname() + " "
-                                    + entity.getLastname() + "</td>");
+                                    + "</th><td>" + entity.getFirstName() + " "
+                                    + entity.getLastName() + "</td>");
                         }
                     }else{
                         out.println("<tr class=\"w3-hover-sand\">");
@@ -108,11 +113,11 @@
                             "  </thead>");
                     out.println("<tbody class=\"connectedSortable out\">");
                     if(!guidesInDatabase.isEmpty()){
-                    for(GuideEntity entity:guidesInDatabase){
+                    for(Guide entity:guidesInDatabase){
                         out.println("<tr class=\"w3-hover-sand table-danger\" id="+entity.getId()+">");
                         out.println("<th scope=\"row\">"
-                                + "</th><td>" + entity.getFirstname() + " "
-                                + entity.getLastname() + "</td>");
+                                + "</th><td>" + entity.getFirstName() + " "
+                                + entity.getLastName() + "</td>");
                     }
                 }else{
                     out.println("Empty");
@@ -139,7 +144,8 @@
 </div>
 
 <div class="w3-container w3-grey w3-opacity w3-right-align w3-padding">
-    <button class="w3-btn w3-round-large" onclick="location.href='../..'">Back to main</button>
+    <button class="w3-btn w3-round-large" onclick="location.href='/'">Back to main</button>
 </div>
 </body>
+
 </html>

@@ -10,12 +10,10 @@
 package ua.home.Util;
 
 import org.apache.commons.dbcp2.BasicDataSource;
-import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.*;
 import org.springframework.core.env.Environment;
 import org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor;
-import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
@@ -61,7 +59,7 @@ public class PersistenceConfig {
         sf.setHibernateProperties(getHibernateProperties());
         return sf;
     }
-    
+
     private Properties getHibernateProperties() {
         Properties props = new Properties();
         props.put("hibernate.format_sql", env.getProperty("hibernate.format_sql"));
@@ -70,12 +68,12 @@ public class PersistenceConfig {
         props.put("hibernate.hbm2ddl.auto", env.getProperty("hibernate.hbm2ddl.auto"));
         return props;
     }
-    
-    @Bean
-    public HibernateTransactionManager txManager(SessionFactory sf) {
-        return new HibernateTransactionManager(sf);
-    }
-    
+
+//    @Bean
+//    public HibernateTransactionManager transactionManager(SessionFactory sf) {
+//        return new HibernateTransactionManager(sf);
+//    }
+
     @Bean
     public PersistenceExceptionTranslationPostProcessor exceptionTranslator() {
         return new PersistenceExceptionTranslationPostProcessor();
