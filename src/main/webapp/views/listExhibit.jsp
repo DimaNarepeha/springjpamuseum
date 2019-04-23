@@ -27,7 +27,6 @@
                         "  <thead>\n" +
                         "    <tr>\n" +
                         "      <th scope=\"col\">Exhibit</th>\n" +
-                        "      <th scope=\"col\">Author</th>\n" +
                         "      <th scope=\"col\">Technique</th>\n" +
                         "      <th scope=\"col\">Material</th>\n" +
                         "      <th scope=\"col\">Hall</th>\n" +

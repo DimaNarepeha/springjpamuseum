@@ -57,8 +57,16 @@ public class ExhibitDaoImpl implements ExhibitDao {
 
     @Override
     public int updateExhibit(Exhibit exhibit) {
-        return 0;
+
+        Session sessionObj = sessionFactory.getCurrentSession();
+        try {
+            sessionObj.update(exhibit);
+        } catch (Exception sqlException) {
+            return 0;
+        }
+        return 1;
     }
+
 
     @Override
     public int deleteExhibit(int id_exhibit) {

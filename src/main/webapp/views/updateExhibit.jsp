@@ -39,7 +39,7 @@
                 }
             %>
             <form method="post" class="w3-selection w3-light-grey w3-padding">
-                <label>Exhibit name :</label> <input type="text" name="exhibitName" placeholder="Exhibit Name" value="<%if(request.getParameter("exhibitName")!=null){
+                <label>Exhibit name :</label> <input type="text" name="exhibitName" placeholder="Exhibit Name" value="<%if(request.getParameter("exhibit_name")!=null){
                     out.println(request.getParameter("exhibit_name"));
                 }
                 else {

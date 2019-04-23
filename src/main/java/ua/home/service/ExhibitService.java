@@ -23,13 +23,13 @@ public class ExhibitService{
     }
 
 
-    public Exhibit getExhibitById(int id) {
-        return null;
+    public Exhibit getExhibitById(int id){
+       return exhibitDao.getExhibitById(id);
     }
 
 
     public int updateExhibit(Exhibit exhibit) {
-        return 0;
+       return exhibitDao.updateExhibit(exhibit);
     }
 
 

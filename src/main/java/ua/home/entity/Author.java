@@ -3,9 +3,7 @@ package ua.home.entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "author", uniqueConstraints = {
-        @UniqueConstraint(columnNames = {"FIRSTNAME", "LASTNAME"})
-})
+@Table(name = "author")
 public class Author {
     @Id
     @Column(name = "id_author")

@@ -14,7 +14,7 @@ public class Exhibit {
     String exhibit_name;
     @ManyToMany(cascade = {
             CascadeType.ALL
-    })
+    }, fetch = FetchType.EAGER)
     @JoinTable(name = "author_exhibit",
             joinColumns = @JoinColumn(name = "id_author"),
             inverseJoinColumns = @JoinColumn(name = "id_exhibit")

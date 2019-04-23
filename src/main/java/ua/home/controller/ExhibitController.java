@@ -31,23 +31,25 @@ public class ExhibitController {
 
     @Autowired
     ExhibitGuideDao exhibitGuideDao;
+
     @GetMapping("/addExhibit")
     public ModelAndView addExhibitPage() {
         ModelAndView modelAndView = new ModelAndView("addExhibit");
         modelAndView.addObject("exhibits", exhibitService.readAllExhibits());
-        return modelAndView; //TODO add implementation to addExhibit
+        return modelAndView;
     }
 
     @PostMapping("/addExhibit")
     public ModelAndView addExhibitToDb(@RequestBody String json) {
         Exhibit exhibit = getExhibitFromString(json);
         ModelAndView modelAndView = new ModelAndView("addExhibit");
-        modelAndView.addObject("exhibits", exhibitService.readAllExhibits());
         if (!checkIfNoEmptyFieldsIn(exhibit)) {
             modelAndView.addObject("success", 0);
+            modelAndView.addObject("exhibits", exhibitService.readAllExhibits());
             return modelAndView;
         }
         exhibitService.saveExhibit(exhibit);
+        modelAndView.addObject("exhibits", exhibitService.readAllExhibits());
         modelAndView.addObject("success", 1);
         System.out.println(exhibit);
         return modelAndView;
@@ -104,12 +106,14 @@ public class ExhibitController {
 
     @PostMapping("/updateExhibit")
     public ModelAndView updateExhibitInDb(@RequestBody String exhibitStr) {
-        Exhibit exhibit = getExhibitFromString(exhibitStr);
+        Exhibit editedExhibit = getExhibitFromString(exhibitStr);
         ModelAndView modelAndView = new ModelAndView("updateExhibit");
-        if (checkIfNoEmptyFieldsIn(exhibit)) {
-            exhibitService.updateExhibit(exhibit);
+        if (checkIfNoEmptyFieldsIn(editedExhibit)) {
+            exhibitService.updateExhibit(editedExhibit);
+            modelAndView.addObject("exhibitToUpdate", editedExhibit);
             modelAndView.addObject("updated", 1);
         } else {
+            modelAndView.addObject("exhibitToUpdate", editedExhibit);
             modelAndView.addObject("updated", 0);
         }
         return modelAndView;
@@ -127,21 +131,21 @@ public class ExhibitController {
         int idInt = Integer.parseInt(id);
         ModelAndView modelAndView = new ModelAndView("dragndropaddguideexhibit");
         modelAndView.addObject("exhibit", exhibitService.getExhibitById(idInt));
-        modelAndView.addObject("idOldExhibit",id);
-        modelAndView.addObject("currentGuides",exhibitGuideDao.getGuidesByExhibitId(idInt));
-        modelAndView.addObject("guidesInDatabase",exhibitGuideDao.getGuidesThatAreNotInThisExhibitById(idInt));
+        modelAndView.addObject("idOldExhibit", id);
+        modelAndView.addObject("currentGuides", exhibitGuideDao.getGuidesByExhibitId(idInt));
+        modelAndView.addObject("guidesInDatabase", exhibitGuideDao.getGuidesThatAreNotInThisExhibitById(idInt));
         return modelAndView;
     }
 
     @PostMapping(value = "/updateRelations")
     public ModelAndView updateRelationInDb(@RequestParam(value = "id") String id,
-                                           @RequestParam(value = "idsToUpdate") String idsToUpdate ) {
+                                           @RequestParam(value = "idsToUpdate") String idsToUpdate) {
         int idInt = Integer.parseInt(id);
         ModelAndView modelAndView = new ModelAndView("dragndropaddguideexhibit");
         modelAndView.addObject("exhibit", exhibitService.getExhibitById(idInt));
-        modelAndView.addObject("idOldExhibit",id);
-        modelAndView.addObject("currentGuides",exhibitGuideDao.getGuidesByExhibitId(idInt));
-        modelAndView.addObject("guidesInDatabase",exhibitGuideDao.getGuidesThatAreNotInThisExhibitById(idInt));
+        modelAndView.addObject("idOldExhibit", id);
+        modelAndView.addObject("currentGuides", exhibitGuideDao.getGuidesByExhibitId(idInt));
+        modelAndView.addObject("guidesInDatabase", exhibitGuideDao.getGuidesThatAreNotInThisExhibitById(idInt));
         List<String> stringList = Arrays.asList(idsToUpdate.split(" "));
         HashSet<Integer> ids = new HashSet<>();
         for (int i = 0; i < stringList.size(); i++) {
