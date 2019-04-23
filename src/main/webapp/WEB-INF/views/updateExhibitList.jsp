@@ -7,7 +7,7 @@
     <title>Exhibits list</title>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-    <script src="${pageContext.request.contextPath}/resources/js/buttonToSelectToBeUpdated.js"></script>
+    <script src="/resources/js/buttonToSelectToBeUpdated.js"></script>
 </head>
 
 <body class="w3-light-grey">
