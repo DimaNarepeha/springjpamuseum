@@ -141,22 +141,24 @@ public class ExhibitController {
     public ModelAndView updateRelationInDb(@RequestParam(value = "id") String id,
                                            @RequestParam(value = "idsToUpdate") String idsToUpdate) {
         int idInt = Integer.parseInt(id);
-        ModelAndView modelAndView = new ModelAndView("dragndropaddguideexhibit");
-        modelAndView.addObject("exhibit", exhibitService.getExhibitById(idInt));
-        modelAndView.addObject("idOldExhibit", id);
-        modelAndView.addObject("currentGuides", exhibitGuideDao.getGuidesByExhibitId(idInt));
-        modelAndView.addObject("guidesInDatabase", exhibitGuideDao.getGuidesThatAreNotInThisExhibitById(idInt));
+        ModelAndView modelAndView = new ModelAndView("redirect:/dragndropaddguideexhibit");
         List<String> stringList = Arrays.asList(idsToUpdate.split(" "));
         HashSet<Integer> ids = new HashSet<>();
         for (int i = 0; i < stringList.size(); i++) {
             try {
+                if(stringList.get(i).equals("")){
+                    continue;
+                }
                 ids.add(Integer.valueOf(stringList.get(i)));
             } catch (NumberFormatException e) {
 
             }
         }
-        System.out.println(ids);
         exhibitGuideDao.reconnectRelations(ids, idInt);
+        modelAndView.addObject("exhibit", exhibitService.getExhibitById(idInt));
+        modelAndView.addObject("idOldExhibit", id);
+        modelAndView.addObject("currentGuides", exhibitGuideDao.getGuidesByExhibitId(idInt));
+        modelAndView.addObject("guidesInDatabase", exhibitGuideDao.getGuidesThatAreNotInThisExhibitById(idInt));
         modelAndView.addObject("success", 1);
         return modelAndView;
     }
