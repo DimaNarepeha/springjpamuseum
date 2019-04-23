@@ -20,6 +20,18 @@
 </head>
 
 <body class="w3-light-grey">
+<div class="container-fluid bg-dark header-top d-none d-md-block">
+    <div class="container ">
+        <div class="row text-light pt-2 pb-2">
+            <div class="col-md-5"><i class="fa fa-envelope-o" aria-hidden="true"></i>
+                https://github.com/DimaNarepeha
+            </div>
+            <div class="col-md-5"><i class="fa fa-envelope-o" aria-hidden="true"></i>
+                https://github.com/AnastasiyaStr
+            </div>
+        </div>
+    </div>
+</div>
 <div class="w3-container w3-light-green w3-opacity w3-right-align">
     <h1 align="center">Basic crud operations</h1>
 </div>
@@ -60,7 +72,7 @@
                 </div>
             </div>
             <div class="carousel-item">
-                <img src=""${b}"" class="d-block w-100" alt="...">
+                <img src="${b}" class="d-block w-100" alt="...">
                 <div class="carousel-caption d-none d-md-block">
                     <h5>Second slide</h5>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
@@ -68,7 +80,7 @@
                 </div>
             </div>
             <div class="carousel-item">
-                <img src="${b}" class="d-block w-100" alt="...">
+                <img src="${c}" class="d-block w-100" alt="...">
                 <div class="carousel-caption d-none d-md-block">
                     <h5>Third slide</h5>
                     <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
@@ -87,6 +99,13 @@
     </div>
 </div>
 
+</div>
+<div id="copyright">
+    <div class="container clearfix">
+        <p class="left">&copy; All rights  2019
+            <br> Web: <a href="https://www.facebook.com">Strontsitska Anastasiia and Dmytro Narepeha</a></p>
+        <div class="social"> <a href="#" class="ic-tw black">&nbsp;</a> <a href="https://www.facebook.com" class="ic-fb black">&nbsp;</a> <a href="#" class="ic-pn black">&nbsp;</a> <a href="https://google.com" class="ic-gl black">&nbsp;</a> </div>
+    </div>
 </div>
 
 

@@ -6,10 +6,12 @@ import ua.home.dao.GuideDAO;
 import ua.home.entity.Guide;
 
 
+import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Map;
 
 @Service
+@Transactional
 public class GuideService {
     @Autowired
     GuideDAO guideDAO;
@@ -22,6 +24,7 @@ public class GuideService {
     }
     public boolean deleteGuides(int guide)
     {
+        //to do simplify code;
         if(guideDAO.deleteById(guide)!=null)return true;
         else
             return false;

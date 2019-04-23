@@ -19,7 +19,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@Transactional
+
 @Repository
 public class GuideDAOImpl implements GuideDAO {
     //static Session sessionObj;
@@ -38,7 +38,7 @@ public class GuideDAOImpl implements GuideDAO {
     }
 
     @SuppressWarnings("unchecked")
-    @Transactional
+
     public  List<Guide> findAll() {
         Session sessionObj = sessionFactory.getCurrentSession();
         List<Guide> list = null;
@@ -56,7 +56,7 @@ public class GuideDAOImpl implements GuideDAO {
         }
         return list;
     }
-    @Transactional
+
 
     public Guide update(Guide guide) {
         Session sessionObj = sessionFactory.getCurrentSession();
