@@ -141,7 +141,7 @@ public class ExhibitController {
     public ModelAndView updateRelationInDb(@RequestParam(value = "id") String id,
                                            @RequestParam(value = "idsToUpdate") String idsToUpdate) {
         int idInt = Integer.parseInt(id);
-        ModelAndView modelAndView = new ModelAndView("redirect:/dragndropaddguideexhibit");
+        ModelAndView modelAndView = new ModelAndView("dragndropaddguideexhibit");
         List<String> stringList = Arrays.asList(idsToUpdate.split(" "));
         HashSet<Integer> ids = new HashSet<>();
         for (int i = 0; i < stringList.size(); i++) {
