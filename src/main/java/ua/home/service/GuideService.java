@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ua.home.dao.GuideDAO;
 import ua.home.entity.Guide;
+import ua.home.exception.NotFoundException;
 
 
 import javax.transaction.Transactional;
@@ -26,8 +27,7 @@ public class GuideService {
     {
         //to do simplify code;
         if(guideDAO.deleteById(guide)!=null)return true;
-        else
-            return false;
+        else throw new NotFoundException("Hello");
     }
 
     public boolean updateGuides(Guide guide){

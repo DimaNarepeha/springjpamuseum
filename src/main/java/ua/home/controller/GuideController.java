@@ -29,9 +29,7 @@ public class GuideController {
     public ModelAndView addGuide(@RequestParam String firstname,@RequestParam String lastname) {
 
         if(firstname.equals("") || lastname.equals("")){
-
             return new ModelAndView("add","added",false);
-
         }
         Guide guide = new Guide();
         guide.setFirstName(firstname);
