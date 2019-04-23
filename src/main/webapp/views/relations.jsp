@@ -1,5 +1,5 @@
 <%@ page import="java.util.List" %>
-<%@ page import="com.softserve.academy.entity.GuideEntity" %>
+<%--<%@ page import="com.softserve.academy.entity.GuideEntity" %>--%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="static java.lang.System.out" %>
 <%@ page import="java.util.Map" %>

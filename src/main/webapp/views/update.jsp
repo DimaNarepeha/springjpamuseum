@@ -3,7 +3,7 @@
 <%--<%@ page import="com.softserve.academy.entity.GuideEntity" %>--%>
 <%@ page import="java.util.List" %>
 <%@ page import="ua.home.entity.Guide" %><%--<%@ page contentType="index/html;charset=UTF-8" language="java" %>--%>
-<spring:url value="/update"  />
+<%--<spring:url value="/update"/>--%>
 <spring:url value="/update" var="updated"  />
 
 <html>
@@ -70,7 +70,7 @@
             "</div>");
 %>
 <div class="w3-container w3-grey w3-opacity w3-right-align w3-padding">
-    <button class="w3-btn w3-round-large" onclick="location.href='/guess_number'">Back to main</button>
+    <button class="w3-btn w3-round-large" onclick="location.href='/'">Back to main</button>
 </div>
 </body>
 </html>

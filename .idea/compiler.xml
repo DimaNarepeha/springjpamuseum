@@ -7,6 +7,8 @@
     <bytecodeTargetLevel>
       <module name="guess-mvc.main" target="1.8" />
       <module name="guess-mvc.test" target="1.8" />
+      <module name="guess-mvc_main" target="1.8" />
+      <module name="guess-mvc_test" target="1.8" />
       <module name="guess_main" target="1.8" />
       <module name="guess_test" target="1.8" />
       <module name="guess_w_main" target="1.8" />
