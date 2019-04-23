@@ -1,8 +1,8 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 
-<spring:url value="1.jpeg" var="1" />
-<spring:url value="2.jpg" var="2" />
-<spring:url value="3.jpg" var="3" />
+<spring:url value="/resources/images/1.jpeg" var="a" />
+<spring:url value="/resources/images/2.jpg" var="b" />
+<spring:url value="/resources/images/3.jpg" var="c" />
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -52,7 +52,7 @@
         </ol>
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="${1}" class="d-block w-100" alt="...">
+                <img src="${a}" class="d-block w-100" alt="...">
                 <div class="carousel-caption d-none d-md-block">
                     <h5>First slide</h5>
                     <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
@@ -60,7 +60,7 @@
                 </div>
             </div>
             <div class="carousel-item">
-                <img src=""${2}"" class="d-block w-100" alt="...">
+                <img src=""${b}"" class="d-block w-100" alt="...">
                 <div class="carousel-caption d-none d-md-block">
                     <h5>Second slide</h5>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
@@ -68,7 +68,7 @@
                 </div>
             </div>
             <div class="carousel-item">
-                <img src="${3}" class="d-block w-100" alt="...">
+                <img src="${b}" class="d-block w-100" alt="...">
                 <div class="carousel-caption d-none d-md-block">
                     <h5>Third slide</h5>
                     <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
