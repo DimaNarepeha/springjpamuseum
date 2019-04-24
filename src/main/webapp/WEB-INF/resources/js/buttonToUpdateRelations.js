@@ -10,7 +10,7 @@ while(row=table.rows[r++])
   ids+=row.id+" ";
 }
     form.setAttribute('method', 'post');
-    form.setAttribute('action', '');
+    form.setAttribute('action', '/updateRelations');
     var x = document.createElement("INPUT");
   x.setAttribute("type", "text");
   x.setAttribute("name", "id");

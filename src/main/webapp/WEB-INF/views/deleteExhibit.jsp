@@ -1,12 +1,14 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="ua.home.entity.Exhibit" %>
 <%@ page import="java.util.List" %>
+<%@ page import="java.util.Iterator" %>
+<%@ page import="ua.home.entity.Author" %>
 
 <html>
 <head>
     <title>Exhibits list</title>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 
 <body class="w3-light-grey">
@@ -28,6 +30,7 @@
                         "  <thead>\n" +
                         "    <tr>\n" +
                         "      <th scope=\"col\">Exhibit</th>\n" +
+                        "      <th scope=\"col\">Author</th>\n" +
                         "      <th scope=\"col\">Technique</th>\n" +
                         "      <th scope=\"col\">Material</th>\n" +
                         "      <th scope=\"col\">Hall</th>\n" +
@@ -36,9 +39,13 @@
                         "  </thead>");
                 out.println("<tbody>");
                 for (Exhibit exhibit : names) {
+                    Iterator iterator=exhibit.getAuthors().iterator();
+                    Author author=((Author)iterator.next());
                     out.println("<tr class=\"w3-hover-sand\">");
                     out.println("<th scope=\"row\">"
                             + exhibit.getExhibit_name()
+                            + "</th><td>" + author.getFirstname() + " "
+                            + author.getLastname() + "</td>"
                             + "<td>" + exhibit.getTechnique() + "</td>"
                             + "<td>" + exhibit.getMaterial() + "</td>"
                             + "<td>" + exhibit.getHall() + "</td>"
@@ -46,7 +53,7 @@
 
                 }
                 out.println("</tbody></table>");
-                out.println("<input class=\"btn btn-danger btn-lg\"type=\"submit\"value=\"Delete\"></form>"); //button to submit checkboxes
+                out.println("<input class=\"btn btn-outline-danger btn-lg\"type=\"submit\"value=\"Delete\"></form>"); //button to submit checkboxes
             } else out.println("<div class=\"w3-panel w3-red w3-display-container w3-card-4 w3-round\">\n"
                     +
                     "   <span onclick=\"this.parentElement.style.display='none'\"\n" +

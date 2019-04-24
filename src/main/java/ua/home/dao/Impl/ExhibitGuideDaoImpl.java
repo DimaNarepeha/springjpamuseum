@@ -5,6 +5,7 @@ import org.hibernate.internal.SessionImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import ua.home.dao.ExhibitGuideDao;
+import ua.home.dao.GuideDAO;
 import ua.home.entity.*;
 
 import javax.transaction.Transactional;
@@ -13,19 +14,21 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.*;
+
 @Repository
 @Transactional
 public class ExhibitGuideDaoImpl implements ExhibitGuideDao {
     @Autowired
     private SessionFactory sessionFactory;
+    @Autowired
+    private GuideDAO guideDAO;
 
     @Override
     public List<Guide> getGuidesByExhibitId(int id) {
         SessionImpl sessionImpl = (SessionImpl) sessionFactory.getCurrentSession();
         Connection conn = sessionImpl.connection();
         List<Guide> guides = new ArrayList<>();
-        try (PreparedStatement getGuides = conn.prepareStatement("SELECT g.id_guide, firstname,lastname,position_name  FROM guide g join guide_position p on  +\n" +
-                "                g.id_position=p.id_guide_position " +
+        try (PreparedStatement getGuides = conn.prepareStatement("SELECT g.id_guide, firstname,lastname  FROM guide g " +
                 " INNER JOIN exhibit_guide ON exhibit_guide.id_guide=g.id_guide " +
                 "WHERE exhibit_guide.id_exhibit=?")) {
             getGuides.setInt(1, id);
@@ -95,11 +98,10 @@ public class ExhibitGuideDaoImpl implements ExhibitGuideDao {
     public List<Guide> getGuidesThatAreNotInThisExhibitById(int id) {
         SessionImpl sessionImpl = (SessionImpl) sessionFactory.getCurrentSession();
         Connection conn = sessionImpl.connection();
-        try (PreparedStatement getGuides = conn.prepareStatement("SELECT id_guide, firstname,lastname,position_name  FROM guide g join guide_position p on  +\n" +
-                "                g.id_position=p.id_guide_position " +
-                "INNER JOIN exhibit_guide ON exhibit_guide.id_guide=g.id_guide " +
-                " where NOT g.id_exhibit=?")) {
-            List<Guide> guideEntities = new GuideDAOImpl().findAll();
+        try (PreparedStatement getGuides = conn.prepareStatement("SELECT g.id_guide, firstname,lastname FROM guide g \n" +
+                "                INNER JOIN exhibit_guide ON exhibit_guide.id_guide=g.id_guide \n" +
+                "                 where exhibit_guide.id_exhibit=?;")) {
+            List<Guide> guideEntities = guideDAO.findAll();
             List<Guide> guidesByExhibitId = getGuidesByExhibitId(id);
             Iterator iterator = guidesByExhibitId.iterator();
             while (iterator.hasNext()) {
@@ -141,18 +143,6 @@ public class ExhibitGuideDaoImpl implements ExhibitGuideDao {
             }
 
             Iterator iterator = guidesThatAlreadyPresent.iterator();
-//            boolean isIdentical = true;
-//            while (iterator.hasNext()) {//check if identical
-//                if (!guidesToExhibit.contains(iterator.next())) {
-//                    isIdentical = false;
-//                    break;
-//                }
-//            }
-//            if (isIdentical) {//if identical then quit
-//                System.out.println("NOOOO");
-//                return result;
-//            }
-            iterator = guidesThatAlreadyPresent.iterator();
             while (iterator.hasNext()) {
                 deleteFromGuideExhibit.setInt(1, (Integer) iterator.next());
                 deleteFromGuideExhibit.setInt(2, exhibitId);

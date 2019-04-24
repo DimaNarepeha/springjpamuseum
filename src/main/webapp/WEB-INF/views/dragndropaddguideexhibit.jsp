@@ -31,32 +31,10 @@
 </div>
 
 <div class="w3-container w3-padding">
-    <%
-        if (request.getAttribute("success") != null && request.getAttribute("success").equals(1)) {
-            out.println("<div class=\"w3-panel w3-green w3-display-container w3-card-4 w3-round\">\n" +
-                    "   <span onclick=\"this.parentElement.style.display='none'\"\n" +
-                    "   class=\"w3-button w3-margin-right w3-display-right w3-round-large w3-hover-green w3-border w3-border-green w3-hover-border-grey\">=)</span>\n" +
-                    "   <h5> Successfully updated!</h5>\n" +
-                    "</div>");
-        }
-    %>
-    <%
-        if (request.getAttribute("success") != null && request.getAttribute("success").equals(0)) {
-            out.println("<div class=\"w3-panel w3-red w3-display-container w3-card-4 w3-round\">\n"
-                    +
-                    "   <span onclick=\"this.parentElement.style.display='none'\"\n" +
-                    "   class=\"w3-button w3-margin-right w3-display-right w3-round-large w3-hover-red w3-border w3-border-red w3-hover-border-grey\">=(</span>\n" +
-                    "   <h5>Nothing was added! You have entered empty fields!</h5>\n" +
-                    "</div>");
-        }
-    %>
     <div class="w3-card-4 container">
         <div class="w3-container w3-center w3-green">
-            <h2>Add exhibit</h2>
+            <h2>Add relations</h2>
         </div>
-        <table class="table table-bordered pagin-table">
-
-            <tbody class="connectedSortable">
             <%
                 Exhibit exhibit = (Exhibit) request.getAttribute("exhibit");
                 List<Guide> currentGuides = (List<Guide>) request.getAttribute("currentGuides");
@@ -76,7 +54,6 @@
                     out.println("<tr class=\"w3-hover-sand\">");
                     Iterator iterator=exhibit.getAuthors().iterator();
                     Author author= (Author) iterator.next();
-                    out.println(((Author)iterator.next()).getFirstname());
                     out.println("<th scope=\"row\">"
                             + exhibit.getExhibit_name()
                             + "</th><td>" + author.getFirstname() + " "
@@ -120,8 +97,11 @@
                                 + entity.getLastName() + "</td>");
                     }
                 }else{
-                    out.println("Empty");
+                        out.println("<tr class=\"w3-hover-sand\">");
+                        out.println("<th scope=\"row\">"
+                                + "</th><td>Empty!</td>");
                 }
+                    out.println("</tbody>" + "</table>");
                 } else out.println("<div class=\"w3-panel w3-red w3-display-container w3-card-4 w3-round\">\n"
                         +
                         "   <span onclick=\"this.parentElement.style.display='none'\"\n" +

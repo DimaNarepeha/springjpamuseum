@@ -70,11 +70,15 @@ public class ExhibitController {
     }
 
     @PostMapping("/deleteExhibit")
-    public ModelAndView deleteExhibitFromDb(@RequestParam(value = "toDelete") String[] paramValues) {
+    public ModelAndView deleteExhibitFromDb(@RequestParam(value = "toDelete",required = false) String[] paramValues) {
         int amountOfDeleted = 0;
         if (paramValues != null) {
-            for (String str : paramValues) {
-                amountOfDeleted += exhibitService.deleteExhibit(Integer.parseInt(str));
+            try {
+                for (String str : paramValues) {
+                    if (str != null && !str.equals(""))
+                        amountOfDeleted += exhibitService.deleteExhibit(Integer.parseInt(str));
+                }
+            } catch (NumberFormatException e) {
             }
         }
         ModelAndView modelAndView = new ModelAndView("deleteExhibit");
@@ -142,21 +146,23 @@ public class ExhibitController {
                                            @RequestParam(value = "idsToUpdate") String idsToUpdate) {
         int idInt = Integer.parseInt(id);
         ModelAndView modelAndView = new ModelAndView("dragndropaddguideexhibit");
-        modelAndView.addObject("exhibit", exhibitService.getExhibitById(idInt));
-        modelAndView.addObject("idOldExhibit", id);
-        modelAndView.addObject("currentGuides", exhibitGuideDao.getGuidesByExhibitId(idInt));
-        modelAndView.addObject("guidesInDatabase", exhibitGuideDao.getGuidesThatAreNotInThisExhibitById(idInt));
         List<String> stringList = Arrays.asList(idsToUpdate.split(" "));
         HashSet<Integer> ids = new HashSet<>();
         for (int i = 0; i < stringList.size(); i++) {
             try {
+                if (stringList.get(i).equals("")) {
+                    continue;
+                }
                 ids.add(Integer.valueOf(stringList.get(i)));
             } catch (NumberFormatException e) {
 
             }
         }
-        System.out.println(ids);
         exhibitGuideDao.reconnectRelations(ids, idInt);
+        modelAndView.addObject("exhibit", exhibitService.getExhibitById(idInt));
+        modelAndView.addObject("idOldExhibit", id);
+        modelAndView.addObject("currentGuides", exhibitGuideDao.getGuidesByExhibitId(idInt));
+        modelAndView.addObject("guidesInDatabase", exhibitGuideDao.getGuidesThatAreNotInThisExhibitById(idInt));
         modelAndView.addObject("success", 1);
         return modelAndView;
     }

@@ -7,7 +7,7 @@
 <html>
 <head>
     <title>Exhibits list</title>
-    <script src="${pageContext.request.contextPath}/resources/js/onClickExhibits.js"></script>
+    <script src="/resources/js/onClickExhibits.js"></script>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 </head>
