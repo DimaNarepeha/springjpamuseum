@@ -70,11 +70,15 @@ public class ExhibitController {
     }
 
     @PostMapping("/deleteExhibit")
-    public ModelAndView deleteExhibitFromDb(@RequestParam(value = "toDelete") String[] paramValues) {
+    public ModelAndView deleteExhibitFromDb(@RequestParam(value = "toDelete",required = false) String[] paramValues) {
         int amountOfDeleted = 0;
         if (paramValues != null) {
-            for (String str : paramValues) {
-                amountOfDeleted += exhibitService.deleteExhibit(Integer.parseInt(str));
+            try {
+                for (String str : paramValues) {
+                    if (str != null && !str.equals(""))
+                        amountOfDeleted += exhibitService.deleteExhibit(Integer.parseInt(str));
+                }
+            } catch (NumberFormatException e) {
             }
         }
         ModelAndView modelAndView = new ModelAndView("deleteExhibit");
@@ -146,7 +150,7 @@ public class ExhibitController {
         HashSet<Integer> ids = new HashSet<>();
         for (int i = 0; i < stringList.size(); i++) {
             try {
-                if(stringList.get(i).equals("")){
+                if (stringList.get(i).equals("")) {
                     continue;
                 }
                 ids.add(Integer.valueOf(stringList.get(i)));

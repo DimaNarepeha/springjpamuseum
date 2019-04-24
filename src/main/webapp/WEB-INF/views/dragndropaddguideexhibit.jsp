@@ -33,11 +33,8 @@
 <div class="w3-container w3-padding">
     <div class="w3-card-4 container">
         <div class="w3-container w3-center w3-green">
-            <h2>Add exhibit</h2>
+            <h2>Add relations</h2>
         </div>
-        <table class="table table-bordered pagin-table">
-
-            <tbody class="connectedSortable">
             <%
                 Exhibit exhibit = (Exhibit) request.getAttribute("exhibit");
                 List<Guide> currentGuides = (List<Guide>) request.getAttribute("currentGuides");
@@ -57,7 +54,6 @@
                     out.println("<tr class=\"w3-hover-sand\">");
                     Iterator iterator=exhibit.getAuthors().iterator();
                     Author author= (Author) iterator.next();
-                    out.println(author.getFirstname());
                     out.println("<th scope=\"row\">"
                             + exhibit.getExhibit_name()
                             + "</th><td>" + author.getFirstname() + " "

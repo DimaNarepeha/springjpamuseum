@@ -1,5 +1,7 @@
 <%@ page import="java.util.List" %>
 <%@ page import="ua.home.entity.Exhibit" %>
+<%@ page import="ua.home.entity.Author" %>
+<%@ page import="java.util.Iterator" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <html>
@@ -7,7 +9,7 @@
     <title>Exhibits list</title>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-    <script src="/resources/js/buttonToSelectToBeUpdated.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/js/buttonToSelectToBeUpdated.js"></script>
 </head>
 
 <body class="w3-light-grey">
@@ -36,10 +38,13 @@
                         "  </thead>");
                 out.println("<tbody>");
                 for (Exhibit exhibit : names) {
+                    Iterator iterator=exhibit.getAuthors().iterator();
+                    Author author=((Author)iterator.next());
                     out.println("<tr class=\"w3-hover-sand\">");
                     out.println("<th scope=\"row\">"
                             + exhibit.getExhibit_name()
-                            + "</th>"
+                            + "</th><td>" + author.getFirstname() + " "
+                            + author.getLastname() + "</td>"
                             + "<td>" + exhibit.getTechnique() + "</td>"
                             + "<td>" + exhibit.getMaterial() + "</td>"
                             + "<td>" + exhibit.getHall() + "</td>");

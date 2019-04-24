@@ -41,8 +41,8 @@ public class Exhibit {
             CascadeType.ALL
     }, fetch = FetchType.EAGER)
     @JoinTable(name = "exhibit_guide",
-            joinColumns = @JoinColumn(name = "id_exhibit"),
-            inverseJoinColumns = @JoinColumn(name = "id_guide"))
+            joinColumns = @JoinColumn(name = "id_guide"),
+            inverseJoinColumns = @JoinColumn(name = "id_exhibit"))
 
     Set<Guide> guides;
 
