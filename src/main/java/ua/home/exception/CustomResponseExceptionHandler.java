@@ -16,7 +16,6 @@ public class CustomResponseExceptionHandler extends ResponseEntityExceptionHandl
     GuideService guideService;
     @ExceptionHandler(NotFoundException.class)
     public ModelAndView handleNotFoundException(NotFoundException e, WebRequest req){
-        ExceptionResponse exceptionResponse = new ExceptionResponse(e.getMessage(), req.getDescription(false));
         ModelAndView modelAndView = new ModelAndView("delete","result",false);
         modelAndView.addObject("guides",guideService.findAllGuides());
         return modelAndView;

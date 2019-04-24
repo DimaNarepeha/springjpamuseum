@@ -22,7 +22,7 @@ import java.util.Map;
 @Repository
 @Transactional
 public class GuideDAOImpl implements GuideDAO {
-    //static Session sessionObj;
+
     @Autowired
     private SessionFactory sessionFactory;
     public  Guide save(Guide guide) {

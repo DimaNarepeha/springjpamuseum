@@ -14,20 +14,14 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRegistration;
 
 public class WebAppInitializer extends  AbstractAnnotationConfigDispatcherServletInitializer implements WebApplicationInitializer
-
-
 {
-
     @Override
-    public void onStartup(ServletContext servletContext)
-
-throws ServletException
+    public void onStartup(ServletContext servletContext) throws ServletException
     {
 
         AnnotationConfigWebApplicationContext context =
                 new AnnotationConfigWebApplicationContext();
         context.register(Config.class);
-        //context.register(PersistenceJPAConfig.class);
         ServletRegistration.Dynamic registration =
                 servletContext.addServlet("main", new DispatcherServlet(context));
 

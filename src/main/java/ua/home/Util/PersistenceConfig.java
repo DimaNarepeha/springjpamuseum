@@ -69,11 +69,6 @@ public class PersistenceConfig {
         return props;
     }
 
-//    @Bean
-//    public HibernateTransactionManager transactionManager(SessionFactory sf) {
-//        return new HibernateTransactionManager(sf);
-//    }
-
     @Bean
     public PersistenceExceptionTranslationPostProcessor exceptionTranslator() {
         return new PersistenceExceptionTranslationPostProcessor();

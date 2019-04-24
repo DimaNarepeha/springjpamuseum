@@ -25,7 +25,6 @@ public class GuideService {
     }
     public boolean deleteGuides(int guide)
     {
-        //to do simplify code;
         if(guideDAO.deleteById(guide)!=null)return true;
         else throw new NotFoundException("Hello");
     }
