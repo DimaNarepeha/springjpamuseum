@@ -134,7 +134,7 @@ public class ExhibitGuideDaoImpl implements ExhibitGuideDao {
              PreparedStatement deleteFromGuideExhibit = conn
                      .prepareStatement("DELETE FROM exhibit_guide WHERE id_guide = ? AND id_exhibit=? ;");
              PreparedStatement addGuideExhibit = conn
-                     .prepareStatement("INSERT INTO exhibit_guide(id_guide,id_exhibit)" +
+                     .prepareStatement("INSERT INTO exhibit_guide(id_guide,id_exhibit) " +
                              "VALUES (?,?)")) {
             selectAllConnections.setInt(1, exhibitId);
             ResultSet resultSet = selectAllConnections.executeQuery();
