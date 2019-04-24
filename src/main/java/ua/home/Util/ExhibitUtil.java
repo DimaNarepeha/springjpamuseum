@@ -4,7 +4,17 @@ import ua.home.entity.*;
 
 import java.util.*;
 
+/**
+ * this class helps with parsing strings
+ * and checking values.
+ */
 public class ExhibitUtil {
+    /**
+     * parse json string to exhibit object.
+     *
+     * @param jsonPairs json string
+     * @return exhibit that was parsed
+     */
     public static Exhibit getExhibitFromString(String jsonPairs) {
         Exhibit exhibit = new Exhibit();
         Map<String, String> query_pairs = new HashMap<String, String>();
@@ -25,7 +35,7 @@ public class ExhibitUtil {
             technique.setTechnique_name(query_pairs.get("technique"));
             Set<Author> authors = new HashSet<Author>();
             authors.add(author);
-
+            //add to the exhibit
             exhibit.setExhibit_name(query_pairs.get("exhibit_name"));
             exhibit.setAuthors(authors);
             exhibit.setHall(hall);
@@ -34,32 +44,37 @@ public class ExhibitUtil {
             if (query_pairs.get("id") != null) {
                 exhibit.setId(Integer.parseInt(query_pairs.get("id")));
             }
-        }catch (NumberFormatException e){
+        } catch (NumberFormatException e) {
             return exhibit;
         }
         return exhibit;
     }
 
+    /**
+     * check exhibit object on empty fields.
+     *
+     * @param exhibit exhibit to check
+     * @return true if no empty fields or false if there are
+     */
     public static boolean checkIfNoEmptyFieldsIn(Exhibit exhibit) {
         try {
-            Iterator iterator= exhibit.getAuthors().iterator();
-            while (iterator.hasNext()){
-                Author author= (Author) iterator.next();
-                if(author==null||author.getLastname().equals("")||author.getFirstname().equals("")){
+            Iterator iterator = exhibit.getAuthors().iterator();
+            while (iterator.hasNext()) {
+                Author author = (Author) iterator.next();
+                if (author == null || author.getLastname().equals("") || author.getFirstname().equals("")) {
                     return false;
                 }
             }
-
             if (exhibit.getHall().getHall_name() == null || exhibit.getHall().getHall_name().equals("")
                     || exhibit.getTechnique().getTechnique_name() == null || exhibit.getTechnique().getTechnique_name().equals("")
                     || exhibit.getMaterial().getMaterial_name() == null || exhibit.getMaterial().getMaterial_name().equals("")
                     || exhibit.getExhibit_name() == null || exhibit.getExhibit_name().equals("")
-                    || exhibit.getAuthors() == null || exhibit.getAuthors().size() == 0){
+                    || exhibit.getAuthors() == null || exhibit.getAuthors().size() == 0) {
                 return false;
-            }else {
+            } else {
                 return true;
             }
-        }catch (NullPointerException e){
+        } catch (NullPointerException e) {
             return false;
         }
     }

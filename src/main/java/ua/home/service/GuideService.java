@@ -16,30 +16,31 @@ import java.util.Map;
 public class GuideService {
     @Autowired
     GuideDAO guideDAO;
-    public List<Guide> findAllGuides(){
 
+    public List<Guide> findAllGuides() {
         return guideDAO.findAll();
     }
-    public void saveGuides(Guide guide){
+
+    public void saveGuides(Guide guide) {
         guideDAO.save(guide);
     }
-    public boolean deleteGuides(int guide)
-    {
-        if(guideDAO.deleteById(guide)!=null)return true;
+
+    public boolean deleteGuides(int guide) {
+        if (guideDAO.deleteById(guide) != null) return true;
         else throw new NotFoundException("Hello");
     }
-    public Guide findGuideById(Integer id){
 
+    public Guide findGuideById(Integer id) {
         return guideDAO.findById(id);
     }
-    public boolean updateGuides(Guide guide){
-        if(guide.getFirstName().equals("")||guide.getLastName().equals(""))return false;
-       if(guideDAO.update(guide)==null)return false;
-       else return true;
+
+    public boolean updateGuides(Guide guide) {
+        if (guide.getFirstName().equals("") || guide.getLastName().equals("")) return false;
+        if (guideDAO.update(guide) == null) return false;
+        else return true;
     }
 
-    public Map<String, List<String>> getGuideExhibit(){
-
+    public Map<String, List<String>> getGuideExhibit() {
         return guideDAO.getGuidesByExhibit();
     }
 }

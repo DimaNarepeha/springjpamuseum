@@ -5,9 +5,11 @@ import org.springframework.stereotype.Service;
 import ua.home.dao.ExhibitDao;
 import ua.home.entity.Exhibit;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
+@Transactional
 public class ExhibitService{
     @Autowired
     ExhibitDao exhibitDao;

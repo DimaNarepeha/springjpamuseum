@@ -14,10 +14,11 @@ import ua.home.service.GuideService;
 public class CustomResponseExceptionHandler extends ResponseEntityExceptionHandler {
     @Autowired
     GuideService guideService;
+
     @ExceptionHandler(NotFoundException.class)
-    public ModelAndView handleNotFoundException(NotFoundException e, WebRequest req){
-        ModelAndView modelAndView = new ModelAndView("delete","result",false);
-        modelAndView.addObject("guides",guideService.findAllGuides());
+    public ModelAndView handleNotFoundException(NotFoundException e, WebRequest req) {
+        ModelAndView modelAndView = new ModelAndView("delete", "result", false);
+        modelAndView.addObject("guides", guideService.findAllGuides());
         return modelAndView;
     }
 }

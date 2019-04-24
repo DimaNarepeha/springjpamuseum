@@ -1,3 +1,6 @@
+/*
+ *Open source 2019
+ */
 package ua.home.dao.Impl;
 
 
@@ -11,10 +14,11 @@ import ua.home.entity.Exhibit;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.criteria.CriteriaQuery;
-import javax.transaction.Transactional;
 import java.util.List;
 
-@Transactional
+/**
+ * connects to database and works with database through hibernate.
+ */
 @Repository
 public class ExhibitDaoImpl implements ExhibitDao {
     @Autowired
@@ -25,11 +29,8 @@ public class ExhibitDaoImpl implements ExhibitDao {
     @Override
     public boolean saveExhibit(Exhibit exhibit) {
         Session session = sessionFactory.getCurrentSession();
-//        entityManager.getTransaction().begin();
-
         session.save(exhibit);
         session.flush();
-//        entityManager.getTransaction().commit();
         return true;
     }
 
@@ -57,7 +58,6 @@ public class ExhibitDaoImpl implements ExhibitDao {
 
     @Override
     public int updateExhibit(Exhibit exhibit) {
-
         Session sessionObj = sessionFactory.getCurrentSession();
         try {
             sessionObj.update(exhibit);
