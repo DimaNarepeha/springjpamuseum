@@ -9,11 +9,12 @@ public class CoreController {
 
     /**
      * Handles request to welcome page
+     *
      * @return logical view name
      */
-    @GetMapping
-    public ModelAndView onIndex() {
-        return new ModelAndView("index");
-    }
 
+    @GetMapping("/")
+    public String onIndex() {
+        return "index";
+    }
 }
