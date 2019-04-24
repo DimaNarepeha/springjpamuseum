@@ -9,6 +9,7 @@ public class CoreController {
 
     /**
      * Handles request to welcome page
+     *
      * @return logical view name
      */
 

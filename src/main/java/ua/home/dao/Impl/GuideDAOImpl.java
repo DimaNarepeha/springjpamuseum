@@ -25,7 +25,8 @@ public class GuideDAOImpl implements GuideDAO {
 
     @Autowired
     private SessionFactory sessionFactory;
-    public  Guide save(Guide guide) {
+
+    public Guide save(Guide guide) {
         Session sessionObj = sessionFactory.getCurrentSession();
         try {
             sessionObj.save(guide);
@@ -39,7 +40,7 @@ public class GuideDAOImpl implements GuideDAO {
 
     @SuppressWarnings("unchecked")
 
-    public  List<Guide> findAll() {
+    public List<Guide> findAll() {
         Session sessionObj = sessionFactory.getCurrentSession();
         List<Guide> list = null;
         try {
@@ -50,7 +51,7 @@ public class GuideDAOImpl implements GuideDAO {
             Query<Guide> q = sessionObj.createQuery(query);
             list = q.getResultList();
 
-        } catch(Exception sqlException) {
+        } catch (Exception sqlException) {
             sqlException.printStackTrace();
             return null;
         }
@@ -62,11 +63,11 @@ public class GuideDAOImpl implements GuideDAO {
         Session sessionObj = sessionFactory.getCurrentSession();
         try {
             Guide depObj = (Guide) sessionObj.get(Guide.class, guide.getId());
-            if(depObj==null)return null;
+            if (depObj == null) return null;
             depObj.setFirstName(guide.getFirstName());
             depObj.setLastName(guide.getLastName());
 
-        } catch(Exception sqlException) {
+        } catch (Exception sqlException) {
             sqlException.printStackTrace();
         }
         return guide;
@@ -76,10 +77,10 @@ public class GuideDAOImpl implements GuideDAO {
         Session sessionObj = sessionFactory.getCurrentSession();
         try {
             Guide depObj = findById(guide_id);
-            if(depObj==null||guide_id<=5)return null;
+            if (depObj == null || guide_id <= 5) return null;
             sessionObj.delete(depObj);
             return depObj;
-        } catch(Exception sqlException) {
+        } catch (Exception sqlException) {
             return null;
         }
 
@@ -91,36 +92,37 @@ public class GuideDAOImpl implements GuideDAO {
         Guide findDepartmentObj = null;
         try {
             findDepartmentObj = (Guide) sessionObj.get(Guide.class, find_department_id);
-            if(findDepartmentObj==null)return null;
-        } catch(Exception sqlException) {
+            if (findDepartmentObj == null) return null;
+        } catch (Exception sqlException) {
             sqlException.printStackTrace();
             return null;
         }
         return findDepartmentObj;
     }
 
-   public Map<String, List<String>> getGuidesByExhibit(){
-       Session session = sessionFactory.getCurrentSession();
-       Map<String,List<String>> map = new HashMap<>();
-       List<String> guides = new ArrayList<>();
-       List<Object[]> employees = session.createNativeQuery(
-               "select g.lastname,e.exhibit_name from exhibit_guide eg join guide g on g.id_guide = eg.id_guide join exhibit e on e.id_exhibit = eg.id_exhibit;"
+    public Map<String, List<String>> getGuidesByExhibit() {
+        Session session = sessionFactory.getCurrentSession();
+        Map<String, List<String>> map = new HashMap<>();
+        List<String> guides = new ArrayList<>();
+        List<Object[]> employees = session.createNativeQuery(
+                "select g.lastname,e.exhibit_name from exhibit_guide eg join guide g on g.id_guide = eg.id_guide join exhibit e on e.id_exhibit = eg.id_exhibit;"
 
-               ).addScalar("lastname", StringType.INSTANCE)
-               .addScalar( "exhibit_name", StringType.INSTANCE )
-               .list();
+        ).addScalar("lastname", StringType.INSTANCE)
+                .addScalar("exhibit_name", StringType.INSTANCE)
+                .list();
 
-       for (Object[] objects : employees) {
-           String name=(String)objects[0];
-           String exhibit =(String)objects[1];
-           if(map.keySet().contains(exhibit))map.get(exhibit).add(name);
-           else{
-               List<String> array = new ArrayList();
-               array.add(name);
-               map.put(exhibit,array);}
-       }
-       return map;
-   }
+        for (Object[] objects : employees) {
+            String name = (String) objects[0];
+            String exhibit = (String) objects[1];
+            if (map.keySet().contains(exhibit)) map.get(exhibit).add(name);
+            else {
+                List<String> array = new ArrayList();
+                array.add(name);
+                map.put(exhibit, array);
+            }
+        }
+        return map;
+    }
 
 
 }

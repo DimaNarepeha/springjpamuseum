@@ -1,11 +1,5 @@
 /*
- * 
- * This is a simple web application utilizing Spring MVC and Hibernate.
- * Developed by Lv-205 group of Softserve Academy.
- * 
- * Copyright (c) 1993-2016 Softserve, Inc.
- * This software is the confidential and proprietary information of Softserve.
- *  
+ * Open source project 2019
  */
 package ua.home.Util;
 
@@ -21,11 +15,7 @@ import javax.sql.DataSource;
 import java.util.Properties;
 
 /**
- * Persistence configuration. 
- * 
- * @author Kostyantyn Panchenko
- * @version 1.0
- * @since 23.10.2016
+ * Persistence configuration.
  */
 @Configuration
 @EnableTransactionManagement
@@ -38,9 +28,9 @@ public class PersistenceConfig {
 
     @Autowired
     private Environment env;
-    
+
     private String[] packages = {"ua.home"};
-    
+
     @Bean
     public DataSource dataSource() {
         BasicDataSource ds = new BasicDataSource();
@@ -50,7 +40,7 @@ public class PersistenceConfig {
         ds.setPassword(env.getProperty("jdbc.password"));
         return ds;
     }
-    
+
     @Bean(name = "sessionFactory")
     public LocalSessionFactoryBean sessionFactory(DataSource ds) {
         LocalSessionFactoryBean sf = new LocalSessionFactoryBean();

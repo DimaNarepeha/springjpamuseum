@@ -41,6 +41,6 @@ public class Author {
 
     @Override
     public String toString() {
-        return  firstname + " "+ lastname;
+        return firstname + " " + lastname;
     }
 }

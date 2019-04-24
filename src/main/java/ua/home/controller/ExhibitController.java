@@ -1,3 +1,6 @@
+/*
+ *Open source project 2019
+ */
 package ua.home.controller;
 
 
@@ -19,7 +22,6 @@ import java.util.List;
 
 import static ua.home.Util.ExhibitUtil.checkIfNoEmptyFieldsIn;
 import static ua.home.Util.ExhibitUtil.getExhibitFromString;
-
 
 @Controller
 public class ExhibitController {
@@ -70,7 +72,7 @@ public class ExhibitController {
     }
 
     @PostMapping("/deleteExhibit")
-    public ModelAndView deleteExhibitFromDb(@RequestParam(value = "toDelete",required = false) String[] paramValues) {
+    public ModelAndView deleteExhibitFromDb(@RequestParam(value = "toDelete", required = false) String[] paramValues) {
         int amountOfDeleted = 0;
         if (paramValues != null) {
             try {
@@ -115,10 +117,10 @@ public class ExhibitController {
         if (checkIfNoEmptyFieldsIn(editedExhibit)) {
             exhibitService.updateExhibit(editedExhibit);
             modelAndView.addObject("exhibitToUpdate", editedExhibit);
-            modelAndView.addObject("updated", 1);
+            modelAndView.addObject("updated", 1); //flag of success
         } else {
             modelAndView.addObject("exhibitToUpdate", editedExhibit);
-            modelAndView.addObject("updated", 0);
+            modelAndView.addObject("updated", 0); //flag of success
         }
         return modelAndView;
     }
@@ -130,6 +132,12 @@ public class ExhibitController {
         return modelAndView;
     }
 
+    /**
+     * page to list guide and exhibit to update relations between them.
+     *
+     * @param id of exhibit
+     * @return
+     */
     @PostMapping(value = "/updateRelation")
     public ModelAndView updateRelationInDbPage(@RequestParam(value = "id") String id) {
         int idInt = Integer.parseInt(id);
@@ -141,6 +149,14 @@ public class ExhibitController {
         return modelAndView;
     }
 
+    /**
+     * when the user already reconnect relations between exhibit and guides
+     * this method submit changes to db.
+     *
+     * @param id          of exhibit
+     * @param idsToUpdate ids of guides for that exhibit
+     * @return
+     */
     @PostMapping(value = "/updateRelations")
     public ModelAndView updateRelationInDb(@RequestParam(value = "id") String id,
                                            @RequestParam(value = "idsToUpdate") String idsToUpdate) {

@@ -30,6 +30,6 @@ public class Material {
 
     @Override
     public String toString() {
-        return  material_name;
+        return material_name;
     }
 }

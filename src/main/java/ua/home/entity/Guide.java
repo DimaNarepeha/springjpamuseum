@@ -1,9 +1,10 @@
 package ua.home.entity;
+
 import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Table(name ="guide")
+@Table(name = "guide")
 public class Guide implements Serializable {
 
     @Id

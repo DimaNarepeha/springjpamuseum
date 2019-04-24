@@ -1,3 +1,6 @@
+/*
+ *Open source project 2019
+ */
 package ua.home;
 
 import org.springframework.context.annotation.Bean;
@@ -16,23 +19,27 @@ import org.springframework.web.servlet.view.JstlView;
 
 import javax.persistence.EntityManagerFactory;
 
+/**
+ * This class configure view resolver and add resources path to the context.
+ */
 @Configuration
 @EnableWebMvc
 @EnableTransactionManagement
 @ComponentScan
-
 public class Config extends WebMvcConfigurerAdapter {
-   @Override
-   public void addResourceHandlers(ResourceHandlerRegistry registry) {
-       super.addResourceHandlers(registry);
-       registry.addResourceHandler("/resources/**")
-               .addResourceLocations("/WEB-INF/resources/");
-   }
-    public void configureDefaultServerletHandling(DefaultServletHandlerConfigurer configurer){
+    @Override
+    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+        super.addResourceHandlers(registry);
+        registry.addResourceHandler("/resources/**")
+                .addResourceLocations("/WEB-INF/resources/");
+    }
+
+    public void configureDefaultServerletHandling(DefaultServletHandlerConfigurer configurer) {
         configurer.enable();
     }
+
     @Bean
-    public ViewResolver getViewResolver(){
+    public ViewResolver getViewResolver() {
         InternalResourceViewResolver resolver = new InternalResourceViewResolver();
         resolver.setViewClass(JstlView.class);
         resolver.setPrefix("/WEB-INF/views/");
@@ -44,7 +51,6 @@ public class Config extends WebMvcConfigurerAdapter {
     public PlatformTransactionManager transactionManager(EntityManagerFactory emf) {
         JpaTransactionManager transactionManager = new JpaTransactionManager();
         transactionManager.setEntityManagerFactory(emf);
-
         return transactionManager;
     }
 
