@@ -5,6 +5,10 @@
 <%@ page import="ua.home.entity.Guide" %><%--<%@ page contentType="index/html;charset=UTF-8" language="java" %>--%>
 <%--<spring:url value="/update"/>--%>
 <spring:url value="/update" var="updated"  />
+<spring:url value="/update" var="first"  />
+<spring:url value="/update" var="last"  />
+<spring:url value="/update" var="guides"  />
+<spring:url value="/update" var="guides"  />
 
 <html>
 <head>
@@ -42,14 +46,28 @@
         </div>
         <form method="post" class="w3-selection w3-light-grey w3-padding">
             <label>Enter guide's id:
-                <input type="text" name="id" class="w3-input w3-animate-input w3-border w3-round-large" style="width: 30%"><br />
+
+                <%
+                    Integer id = (Integer)request.getAttribute("id");
+                    if (id == null) {
+                        out.print("<input type=\"text\" name=\"id\" class=\"w3-input w3-animate-input w3-border w3-round-large\" style=\"width: 30%\"><br />");
+                    }else{
+                        out.print("<input type=\"text\" value =\""+id+"\" name=\"id\" class=\"w3-input w3-animate-input w3-border w3-round-large\" style=\"width: 30%\"><br />");
+                    }
+                %>
+
             </label>
-            <label>Guide FirstName:
-                <input type="text" name="first" class="w3-input w3-animate-input w3-border w3-round-large" style="width: 30%"><br />
-            </label>
-            <label>Guide LastName:
-                <input type="text" name="last" class="w3-input w3-animate-input w3-border w3-round-large" style="width: 30%"><br />
-            </label>
+            <%
+                String first = (String)request.getAttribute("first");
+                String last = (String)request.getAttribute("last");
+                if (first != null && last!=null) {
+                    out.println("<label>Guide FirstName:"+
+                            "<input type=\"text\" name=\"first\" value="+first+ " class=w3-input w3-animate-input w3-border w3-round-large\" style=\"width: 30%\"><br />"+
+                            "</label>"
+                            +"<label>Guide LastName:"
+                            +"<input type=\"text\" name=\"last\" value="+last+ " class=w3-input w3-animate-input w3-border w3-round-large\" style=\"width: 30%\"><br />"+
+                            "</label>");}
+            %>
             <button  class="w3-btn w3-green w3-round-large w3-margin-bottom"  >Submit</button>
         </form>
     </div>

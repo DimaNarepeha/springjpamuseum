@@ -29,8 +29,12 @@ public class GuideService {
         if(guideDAO.deleteById(guide)!=null)return true;
         else throw new NotFoundException("Hello");
     }
+    public Guide findGuideById(Integer id){
 
+        return guideDAO.findById(id);
+    }
     public boolean updateGuides(Guide guide){
+        if(guide.getFirstName().equals("")||guide.getLastName().equals(""))return false;
        if(guideDAO.update(guide)==null)return false;
        else return true;
     }
