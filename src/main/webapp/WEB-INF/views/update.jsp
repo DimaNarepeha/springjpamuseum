@@ -29,7 +29,7 @@
         if (names != null && !names.isEmpty()) {
             out.println("<ul class=\"w3-ul\">");
             for (Guide s : names) {
-                out.println("<li class=\"w3-hover-sand\">"+s.getId()+"." + s.getFirstName() + s.getLastName() + "</li>");
+                out.println("<li class=\"w3-hover-sand\">"+s.getId()+"." + s.getFirstName() +" "+ s.getLastName() + "</li>");
             }
             out.println("</ul>");
 
