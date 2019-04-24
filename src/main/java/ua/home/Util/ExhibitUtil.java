@@ -2,10 +2,7 @@ package ua.home.Util;
 
 import ua.home.entity.*;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 public class ExhibitUtil {
     public static Exhibit getExhibitFromString(String jsonPairs) {
@@ -45,6 +42,14 @@ public class ExhibitUtil {
 
     public static boolean checkIfNoEmptyFieldsIn(Exhibit exhibit) {
         try {
+            Iterator iterator= exhibit.getAuthors().iterator();
+            while (iterator.hasNext()){
+                Author author= (Author) iterator.next();
+                if(author==null||author.getLastname().equals("")||author.getFirstname().equals("")){
+                    return false;
+                }
+            }
+
             if (exhibit.getHall().getHall_name() == null || exhibit.getHall().getHall_name().equals("")
                     || exhibit.getTechnique().getTechnique_name() == null || exhibit.getTechnique().getTechnique_name().equals("")
                     || exhibit.getMaterial().getMaterial_name() == null || exhibit.getMaterial().getMaterial_name().equals("")
