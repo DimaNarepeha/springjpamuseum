@@ -50,7 +50,7 @@
                     +
                     "   <span onclick=\"this.parentElement.style.display='none'\"\n" +
                     "   class=\"w3-button w3-margin-right w3-display-right w3-round-large w3-hover-red w3-border w3-border-red w3-hover-border-grey\">=)</span>\n" +
-                    "   <h5>There are no users yet!</h5>\n" +
+                    "   <h5>There are no responsible yet!</h5>\n" +
                     "</div>");
         %>
     </div>
