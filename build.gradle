@@ -30,9 +30,6 @@ cargo {
         file = file('build/libs/guess-mvc-1.0-SNAPSHOT.war')
     }
 
-    local {
-        homeDir = file('C:/apache-tomcat-8.5.38')
-    }
 }
 
 sourceCompatibility = 1.8
