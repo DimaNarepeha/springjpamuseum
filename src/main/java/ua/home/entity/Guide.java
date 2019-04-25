@@ -1,29 +1,29 @@
 package ua.home.entity;
 
-import javax.annotation.sql.DataSourceDefinition;
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
-@Table
-
-public class Guide {
+@Table(name = "guide")
+public class Guide implements Serializable {
 
     @Id
+    @Column(name = "id_guide")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private int id_guide;
 
-    @Column(name = "first_name")
+    @Column(name = "firstname")
     private String firstName;
 
-    @Column(name = "last_name")
+    @Column(name = "lastname")
     private String lastName;
 
     public int getId() {
-        return id;
+        return id_guide;
     }
 
     public void setId(int id) {
-        this.id = id;
+        this.id_guide = id;
     }
 
     public String getFirstName() {

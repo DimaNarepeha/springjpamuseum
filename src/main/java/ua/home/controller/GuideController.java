@@ -15,10 +15,12 @@ import ua.home.service.GuideService;
 public class GuideController {
     @Autowired
     GuideService guideService;
+
     @GetMapping("/list")
     public ModelAndView all() {
         return new ModelAndView("list", "guides", guideService.findAllGuides());
     }
+
     @GetMapping("/add")
     public ModelAndView addGuide() {
         Guide guide = new Guide();
@@ -26,35 +28,100 @@ public class GuideController {
     }
 
     @PostMapping("/add")
-    public ModelAndView addGuide(@RequestParam String firstname,@RequestParam String lastname) {
+    public ModelAndView addGuide(@RequestParam String firstname, @RequestParam String lastname) {
+        if (firstname.equals("") || lastname.equals("")) {
+            return new ModelAndView("add", "added", false);
+        }
         Guide guide = new Guide();
         guide.setFirstName(firstname);
         guide.setLastName(lastname);
         guideService.saveGuides(guide);
-        return new ModelAndView("add","added",lastname);
+        return new ModelAndView("add", "added", true);
     }
+
     @GetMapping("/delete")
     public ModelAndView deleteGuide() {
-        return new ModelAndView("delete","guides",guideService.findAllGuides());
+        return new ModelAndView("delete", "guides", guideService.findAllGuides());
     }
+
     @PostMapping("/delete")
     public ModelAndView deleteGuide(@RequestParam String id) {
-        guideService.deleteGuides(Integer.parseInt(id));
-        return new ModelAndView("delete","deleted",id);
+        try {
+            guideService.deleteGuides(Integer.parseInt(id));
+        } catch (Exception e) {
+            ModelAndView modelAndView = new ModelAndView("delete", "result", false);
+            modelAndView.addObject("guides", guideService.findAllGuides());
+            return modelAndView;
+        }
+        ModelAndView modelAndView = new ModelAndView("delete", "result", true);
+        modelAndView.addObject("guides", guideService.findAllGuides());
+        return modelAndView;
     }
 
     @GetMapping("/update")
     public ModelAndView updateGuide() {
-        return new ModelAndView("update","guides",guideService.findAllGuides());
+        return new ModelAndView("update", "guides", guideService.findAllGuides());
     }
+
     @PostMapping("/update")
-    public ModelAndView updateGuide(@RequestParam String id,@RequestParam String first,
-                                    @RequestParam String last) {
+    public ModelAndView updateGuide(@RequestParam String id, @RequestParam(value = "first", required = false) String first,
+                                    @RequestParam(value = "last", required = false) String last) {
+        if (first == null && last == null) {
+            Integer ide = 0;
+            try {
+                ide = Integer.parseInt(id);
+            } catch (NumberFormatException e) {
+                ModelAndView modelAndView = new ModelAndView("update", "guides", null);
+                modelAndView.addObject("first", null);
+                modelAndView.addObject("last", null);
+                modelAndView.addObject("guides", guideService.findAllGuides());
+                modelAndView.addObject("result", false);
+                return modelAndView;
+            }
+            Guide guide = guideService.findGuideById(ide);
+            if (guide != null) {
+                ModelAndView modelAndView = new ModelAndView("update", "guides", null);
+                modelAndView.addObject("first", guide.getFirstName());
+                modelAndView.addObject("id", guide.getId());
+                modelAndView.addObject("last", guide.getLastName());
+                modelAndView.addObject("guides", guideService.findAllGuides());
+                modelAndView.addObject("result", null);
+                return modelAndView;
+            }
+
+            ModelAndView modelAndView = new ModelAndView("update", "guides", null);
+            modelAndView.addObject("first", null);
+            modelAndView.addObject("last", null);
+            modelAndView.addObject("guides", guideService.findAllGuides());
+            modelAndView.addObject("result", false);
+            return modelAndView;
+        }
         Guide guide = new Guide();
-        guide.setId(Integer.parseInt(id));
+        try {
+            guide.setId(Integer.parseInt(id));
+        } catch (NumberFormatException e) {
+            ModelAndView modelAndView = new ModelAndView("update", "guides", null);
+            modelAndView.addObject("guides", guideService.findAllGuides());
+            modelAndView.addObject("result", false);
+            return modelAndView;
+        }
+
         guide.setFirstName(first);
         guide.setLastName(last);
-        guideService.updateGuides(guide);
-        return new ModelAndView("update","guides",guideService.findAllGuides());
+        if (!guideService.updateGuides(guide)) {
+            ModelAndView modelAndView = new ModelAndView("update", "guides", null);
+            modelAndView.addObject("guides", guideService.findAllGuides());
+            modelAndView.addObject("result", false);
+            return modelAndView;
+        }
+        ModelAndView modelAndView = new ModelAndView("update", "guides", guideService.findAllGuides());
+        modelAndView.addObject("result", true);
+        return modelAndView;
+
+    }
+
+    @GetMapping("/find")
+    public ModelAndView findRelations() {
+        return new ModelAndView("relations", "relations", guideService.getGuideExhibit());
     }
 }

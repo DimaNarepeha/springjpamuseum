@@ -1,3 +1,6 @@
+/*
+ *Open source project 2019
+ */
 package ua.home.Util;
 
 
@@ -6,29 +9,21 @@ import org.springframework.web.context.support.AnnotationConfigWebApplicationCon
 import org.springframework.web.servlet.DispatcherServlet;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 import ua.home.Config;
-import ua.home.service.TestValidator;
-
-//import ua.home.config.PersistenceJPAConfig;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRegistration;
 
-public class WebAppInitializer extends  AbstractAnnotationConfigDispatcherServletInitializer implements WebApplicationInitializer
-
-
-{
-
+/**
+ * Initialize main servlet.
+ */
+public class WebAppInitializer extends AbstractAnnotationConfigDispatcherServletInitializer implements WebApplicationInitializer {
     @Override
-    public void onStartup(ServletContext servletContext)
-
-throws ServletException
-    {
+    public void onStartup(ServletContext servletContext) throws ServletException {
 
         AnnotationConfigWebApplicationContext context =
                 new AnnotationConfigWebApplicationContext();
         context.register(Config.class);
-        //context.register(PersistenceJPAConfig.class);
         ServletRegistration.Dynamic registration =
                 servletContext.addServlet("main", new DispatcherServlet(context));
 
@@ -38,17 +33,17 @@ throws ServletException
 
     @Override
     protected Class<?>[] getRootConfigClasses() {
-        return new Class<?>[] { Config.class };
+        return new Class<?>[]{PersistenceConfig.class};
     }
 
     @Override
     protected Class<?>[] getServletConfigClasses() {
-        return new Class<?>[] { Config.class };
+        return new Class<?>[]{Config.class};
     }
 
     @Override
     protected String[] getServletMappings() {
-        return new String[] { "/" };
+        return new String[]{"/"};
     }
 
 }

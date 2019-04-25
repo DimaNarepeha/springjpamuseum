@@ -2,37 +2,45 @@ package ua.home.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import ua.home.dao.GuideDAO;
 import ua.home.entity.Guide;
-import ua.home.repository.GuideRepository;
+import ua.home.exception.NotFoundException;
 
+
+import javax.transaction.Transactional;
 import java.util.List;
+import java.util.Map;
+
 @Service
+@Transactional
 public class GuideService {
     @Autowired
-    GuideRepository guideRepository;
-    public List<Guide> findAllGuides(){
-/*
-        Guide guide = new Guide();
-        guide.setId(1);
-        guide.setFirstName("Nastia");
-        guide.setLastName("Nastia");
-        guideRepository.save(guide);*/
-        return guideRepository.findAll();
-    }
-    public void saveGuides(Guide guide){
+    GuideDAO guideDAO;
 
-        guideRepository.save(guide);
-    }
-    public void deleteGuides(int guide){
-        guideRepository.deleteById(guide);
+    public List<Guide> findAllGuides() {
+        return guideDAO.findAll();
     }
 
-    public void updateGuides(Guide guide){
-        if(!guideRepository.existsById(guide.getId()))return;
-        Guide guide1 = guideRepository.getGuideById(guide.getId());
-       // guideRepository.deleteById(guide.getId());
-        guide1.setFirstName(guide.getFirstName());
-        guide1.setLastName(guide.getLastName());
-        guideRepository.save(guide1);
+    public void saveGuides(Guide guide) {
+        guideDAO.save(guide);
+    }
+
+    public boolean deleteGuides(int guide) {
+        if (guideDAO.deleteById(guide) != null) return true;
+        else throw new NotFoundException("Hello");
+    }
+
+    public Guide findGuideById(Integer id) {
+        return guideDAO.findById(id);
+    }
+
+    public boolean updateGuides(Guide guide) {
+        if (guide.getFirstName().equals("") || guide.getLastName().equals("")) return false;
+        if (guideDAO.update(guide) == null) return false;
+        else return true;
+    }
+
+    public Map<String, List<String>> getGuideExhibit() {
+        return guideDAO.getGuidesByExhibit();
     }
 }
