@@ -12,7 +12,10 @@ plugins {
     id 'java'
     id 'war'
 }
-
+wrapper {
+    gradleVersion = '4.4'
+    distributionUrl = distributionUrl.replace("bin", "all")
+}
 group 'ua.home'
 version '1.0-SNAPSHOT'
 
