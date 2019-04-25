@@ -28,7 +28,7 @@ cargo {
     }
 
     local {
-        homeDir = file('C:/apache-tomcat-8.5.38')
+        homeDir = file('D:/apache-tomcat-8.5.38')
     }
 }
 
